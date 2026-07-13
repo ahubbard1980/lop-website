@@ -1,0 +1,99 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Leylines of Power — a trading card game of Nexus Lords and elemental affinities.' } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="/">
+          <img src="/icons/lop-logo.png" alt="Leylines of Power" width="40" height="40" />
+          <span>Leylines of Power</span>
+        </a>
+        <nav class="site-nav">
+          <a class="play-link" href="https://play.leylinesofpower.com">Play Now</a>
+        </nav>
+      </header>
+
+      <main class="site-main">
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <span>&copy; {new Date().getFullYear()} Leylines of Power. In active development.</span>
+      </footer>
+    </div>
+  </body>
+</html>
+
+<style>
+  .site-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(201, 169, 78, 0.25);
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--gold-bright);
+  }
+  .brand img {
+    display: block;
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+  }
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .play-link {
+    background: linear-gradient(165deg, var(--gold-bright), var(--gold));
+    color: #241f1a;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    box-shadow: 0 4px 14px rgba(205, 169, 79, 0.25);
+  }
+  .site-main {
+    flex: 1;
+  }
+  .site-footer {
+    padding: 16px 24px;
+    text-align: center;
+    color: var(--muted-fg);
+    font-size: 12px;
+    border-top: 1px solid rgba(201, 169, 78, 0.15);
+  }
+</style>
