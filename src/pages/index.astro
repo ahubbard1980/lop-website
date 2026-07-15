@@ -102,66 +102,94 @@ const commandFeatures = [
     </div>
   </section>
 
-  <section class="lords">
-    <h2 class="lords-heading">Forge Your <span class="accent-word">Strategy.</span></h2>
-    <img class="ornament-divider" src="/ornaments/divider.png" alt="" />
-    <div class="lords-grid">
-      {
-        pillars.map((pillar) => (
-          <div class="lord-card" style={`--frame: url('${pillar.boxFrame}');`}>
-            <img class="lord-corner lord-corner-tl" src="/ornaments/corner-bracket.png" alt="" />
-            <img class="lord-corner lord-corner-tr" src="/ornaments/corner-bracket.png" alt="" />
-            <img class="lord-corner lord-corner-bl" src="/ornaments/corner-bracket.png" alt="" />
-            <img class="lord-corner lord-corner-br" src="/ornaments/corner-bracket.png" alt="" />
-            <div class="lord-card-img" style={standaloneTopCropStyle(pillar.standaloneImg)} role="img" aria-label={pillar.title} />
-            <div class="lord-card-body">
-              <img class="lord-card-icon" src={pillar.iconImg} alt="" />
-              <h3>{pillar.title}</h3>
-              <p>{pillar.text}</p>
+  {/* Everything below the hero gets the darker "game launcher" gold tone,
+      the same ambient magic-circle/dust background art, and a bordered
+      panel frame on the Tools/Final-CTA blocks (the pillar cards already
+      had their own box-frame + corner brackets from before) — all scoped
+      to this wrapper via a local --gold/--gold-bright override so the
+      hero above and the site header (a separate component, and a DOM
+      sibling of <main>, not a descendant of anything in here) are
+      unaffected. */}
+  <div class="content-bg">
+    <section class="lords">
+      <h2 class="lords-heading">Forge Your <span class="accent-word">Strategy.</span></h2>
+      <img class="ornament-divider" src="/ornaments/divider.png" alt="" />
+      <div class="lords-grid">
+        {
+          pillars.map((pillar) => (
+            <div class="lord-card" style={`--frame: url('${pillar.boxFrame}');`}>
+              <div class="gold-corners gold-corners-sm">
+                <span class="gold-corner gold-corner-tl"></span>
+                <span class="gold-corner gold-corner-tr"></span>
+                <span class="gold-corner gold-corner-bl"></span>
+                <span class="gold-corner gold-corner-br"></span>
+              </div>
+              <div class="lord-card-img" style={standaloneTopCropStyle(pillar.standaloneImg)} role="img" aria-label={pillar.title} />
+              <div class="lord-card-body">
+                <img class="lord-card-icon" src={pillar.iconImg} alt="" />
+                <h3>{pillar.title}</h3>
+                <p>{pillar.text}</p>
+              </div>
             </div>
-          </div>
-        ))
-      }
-    </div>
-    <div class="divider-line-text lords-cta-divider">
-      <img class="ornament-divider ornament-divider-flank" src="/ornaments/divider.png" alt="" />
-      <p>Every choice shapes the battle. Every battle shapes your legend.</p>
-      <img class="ornament-divider ornament-divider-flank ornament-divider-flip" src="/ornaments/divider.png" alt="" />
-    </div>
-    <a class="cta btn-gold" href="https://play.leylinesofpower.com">{ctaLabel}</a>
-    <p class="cta-note">Free browser playtest. No download, no install.</p>
-  </section>
+          ))
+        }
+      </div>
+      <div class="divider-line-text lords-cta-divider">
+        <img class="ornament-divider ornament-divider-flank" src="/ornaments/divider.png" alt="" />
+        <p>Every choice shapes the battle. Every battle shapes your legend.</p>
+        <img class="ornament-divider ornament-divider-flank ornament-divider-flip" src="/ornaments/divider.png" alt="" />
+      </div>
+      <a class="cta btn-gold" href="https://play.leylinesofpower.com">{ctaLabel}</a>
+      <p class="cta-note">Free browser playtest. No download, no install.</p>
+    </section>
 
-  <section class="tools">
-    <p class="eyebrow">Play Tools</p>
-    <div class="heading-divider"><span class="hd-line"></span><span class="hd-diamond">◆</span><span class="hd-line"></span></div>
-    <h2>Everything You Need to <span class="accent-word">Command the Battlefield.</span></h2>
-    <div class="command-features">
-      {
-        commandFeatures.map((feature) => (
-          <div class="command-feature">
-            <div class="feature-icon"><span class="feature-icon-inner" set:html={feature.icon} /></div>
-            <p class="command-feature-eyebrow">{feature.eyebrow}</p>
-            <h3>{feature.heading}</h3>
-            <p class="command-feature-text">{feature.text}</p>
-            {feature.closing && <p class="command-feature-closing">{feature.closing}</p>}
-          </div>
-        ))
-      }
-    </div>
-  </section>
+    <section class="tools">
+      <div class="framed-panel">
+        <div class="gold-corners">
+          <span class="gold-corner gold-corner-tl"></span>
+          <span class="gold-corner gold-corner-tr"></span>
+          <span class="gold-corner gold-corner-bl"></span>
+          <span class="gold-corner gold-corner-br"></span>
+        </div>
+        <p class="eyebrow">Play Tools</p>
+        <div class="heading-divider"><span class="hd-line"></span><span class="hd-diamond">◆</span><span class="hd-line"></span></div>
+        <h2>Everything You Need to <span class="accent-word">Command the Battlefield.</span></h2>
+        <div class="command-features">
+          {
+            commandFeatures.map((feature) => (
+              <div class="command-feature">
+                <div class="feature-icon"><span class="feature-icon-inner" set:html={feature.icon} /></div>
+                <p class="command-feature-eyebrow">{feature.eyebrow}</p>
+                <h3>{feature.heading}</h3>
+                <p class="command-feature-text">{feature.text}</p>
+                {feature.closing && <p class="command-feature-closing">{feature.closing}</p>}
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
 
-  <section class="final-cta">
-    <h2>Open the <span class="accent-word">simulator.</span></h2>
-    <div class="divider-line-text">
-      <span class="dl-diamond">◆</span>
-      <span class="dl-line"></span>
-      <p>Free, in-browser, no account required to start.</p>
-      <span class="dl-line"></span>
-      <span class="dl-diamond">◆</span>
-    </div>
-    <a class="cta btn-gold" href="https://play.leylinesofpower.com">{ctaLabel}</a>
-  </section>
+    <section class="final-cta">
+      <div class="framed-panel framed-panel-compact">
+        <div class="gold-corners">
+          <span class="gold-corner gold-corner-tl"></span>
+          <span class="gold-corner gold-corner-tr"></span>
+          <span class="gold-corner gold-corner-bl"></span>
+          <span class="gold-corner gold-corner-br"></span>
+        </div>
+        <h2>Open the <span class="accent-word">simulator.</span></h2>
+        <div class="divider-line-text">
+          <span class="dl-diamond">◆</span>
+          <span class="dl-line"></span>
+          <p>Free, in-browser, no account required to start.</p>
+          <span class="dl-line"></span>
+          <span class="dl-diamond">◆</span>
+        </div>
+        <a class="cta btn-gold" href="https://play.leylinesofpower.com">{ctaLabel}</a>
+      </div>
+    </section>
+  </div>
 </BaseLayout>
 
 <style>
@@ -288,6 +316,46 @@ const commandFeatures = [
     font-size: 13px;
   }
 
+  /* --gold/--gold-bright are the darker antique-gold tone globally now
+     (see global.css), so no local override is needed here anymore — this
+     wrapper just adds the ambient magic-circle/dust background art.
+     Background art lives on its own pseudo-element (not the wrapper's own
+     background) so opacity can fade just the image without fading the
+     sections sitting on top of it. */
+  .content-bg {
+    position: relative;
+  }
+  .content-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Source art is 1659x948 — locking this pseudo-element's own box to
+       that same aspect ratio (rather than spanning the full, much-taller
+       .content-bg via `inset: 0`) means `width: 100%` scales it to fill
+       the viewport with no side gaps at any screen size, height follows
+       automatically, and background-size 100% 100% just fills that
+       correctly-proportioned box exactly — so it's responsive without
+       ever distorting or needing to crop via `cover`. */
+    aspect-ratio: 1659 / 948;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.2;
+    background-image: url('/ornaments/setup-bg.png');
+    background-size: 100% 100%;
+    background-position: center top;
+    background-repeat: no-repeat;
+    /* Fade to transparent over the bottom ~30% of the image — in percent
+       (not px) so the fade point stays proportional to the image's own
+       rendered edge regardless of how large `width: 100%` scales it. */
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 68%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 0%, black 68%, transparent 100%);
+  }
+  .content-bg > section {
+    position: relative;
+    z-index: 1;
+  }
   /* Nexus Lords strip */
   .lords {
     text-align: center;
@@ -295,13 +363,13 @@ const commandFeatures = [
   }
   /* Decorative asset ornaments (line-diamond dividers, pillar icon badges)
      come from hand-illustrated PNGs that ship in a duller, coppery brass
-     tone. This filter recipe was tuned against the site's --gold (#cda94f)
-     by sampling rendered pixel averages via an offscreen canvas until the
-     brightest parts of the art matched — reused everywhere below so every
-     ornament reads as the same "gold," not a mix of tones. */
+     tone. This filter recipe is tuned to the darker --gold above (matching
+     the Setup screen's own recipe) rather than the brighter tone the hero
+     above still uses — reused everywhere below so every ornament reads as
+     the same darker "gold," not a mix of tones. */
   .ornament-divider,
   .lord-card-icon {
-    filter: brightness(1.5) saturate(1.35) hue-rotate(6deg);
+    filter: brightness(1.05) saturate(1.15) hue-rotate(-4deg);
   }
   .ornament-divider {
     display: block;
@@ -453,44 +521,11 @@ const commandFeatures = [
     border-image-slice: 16;
     border-image-width: 5px;
     border-image-repeat: stretch;
-    filter: brightness(1.5) saturate(1.35) hue-rotate(6deg);
+    filter: brightness(1.05) saturate(1.15) hue-rotate(-4deg);
   }
   .lord-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-  }
-  /* Small accent bracket tucked tight into each of the card's four corners
-     (2px in from the edge). The source art is a single top-left-oriented
-     bracket — the other three corners are the same image mirrored via
-     `transform` (scaleX/scaleY flip it across an axis, rotate would work
-     too but flipping keeps the brush-stroke direction looking consistent
-     rather than upside-down) instead of needing four separate assets. */
-  .lord-corner {
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    z-index: 3;
-    pointer-events: none;
-    filter: brightness(1.5) saturate(1.35) hue-rotate(6deg);
-  }
-  .lord-corner-tl {
-    top: 2px;
-    left: 2px;
-  }
-  .lord-corner-tr {
-    top: 2px;
-    right: 2px;
-    transform: scaleX(-1);
-  }
-  .lord-corner-bl {
-    bottom: 2px;
-    left: 2px;
-    transform: scaleY(-1);
-  }
-  .lord-corner-br {
-    bottom: 2px;
-    right: 2px;
-    transform: scale(-1, -1);
   }
   /* The source frame art's own gold line isn't equidistant from its four
      edges (measured: it sits almost flush against the left/right edges but
@@ -616,5 +651,132 @@ const commandFeatures = [
   }
   .final-cta .cta {
     margin-top: 8px;
+  }
+
+  /* Bordered panel frame — same box-frame border-image + corner-bracket
+     ornaments as the pillar cards above (and the simulator's Setup screen
+     panel), reused here to give the Tools and Final CTA blocks the same
+     "gold trim" treatment instead of sitting as plain borderless sections. */
+  .framed-panel {
+    position: relative;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 56px 48px;
+    background: linear-gradient(165deg, var(--sidebar-bg-2), var(--sidebar-bg));
+    border-radius: 12px;
+  }
+  /* Border-image frame drawn on its own pseudo-element (same pattern as
+     .lord-card::before above) rather than directly on .framed-panel's own
+     border — `filter` composites its WHOLE element including content, so
+     putting it straight on .framed-panel would also wash out the heading/
+     button colors inside. A separate absolutely-positioned overlay with
+     only the border painted (border-image's middle slice is discarded,
+     not filled) can be filtered on its own without touching the content
+     underneath. */
+  .framed-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    border-style: solid;
+    border-width: 8px;
+    border-image-source: url('/ornaments/box-frame-2.png');
+    border-image-slice: 16;
+    border-image-width: 8px;
+    border-image-repeat: stretch;
+    border-radius: 12px;
+    filter: brightness(1.05) saturate(1.15) hue-rotate(-4deg);
+  }
+  .framed-panel-compact {
+    padding: 48px;
+  }
+  /* Small gold "jeweled corner" accents — same treatment as the simulator's
+     Deck Builder/Board zone corners, replacing the old ornate corner-bracket
+     image flourish so the whole site (launcher, deck builder, board,
+     marketing pages) reads as one consistent gold-trim language. The wrapper
+     sets how far the brackets sit from the element's own edge (`inset`);
+     `-sm` is a smaller/tighter variant for compact elements like the pillar
+     cards, vs. the roomier default used on the larger framed panels. */
+  .gold-corners {
+    position: absolute;
+    inset: 10px;
+    pointer-events: none;
+    z-index: 10;
+  }
+  .gold-corners-sm {
+    inset: 6px;
+  }
+  .gold-corner {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border: 0 solid var(--gold-bright);
+    opacity: 0.9;
+    filter: drop-shadow(0 0 2px rgba(205, 169, 79, 0.4));
+  }
+  .gold-corners-sm .gold-corner {
+    width: 16px;
+    height: 16px;
+  }
+  /* A tiny gold accent point right at the elbow of each bracket — a small
+     "jeweled corner" touch rather than a plain right-angle line. */
+  .gold-corner::before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--gold-bright);
+    transform: rotate(45deg);
+    opacity: 0.95;
+    box-shadow: 0 0 3px rgba(232, 201, 119, 0.55);
+  }
+  .gold-corners-sm .gold-corner::before {
+    width: 5px;
+    height: 5px;
+  }
+  .gold-corner-tl {
+    top: 0;
+    left: 0;
+    border-top-width: 2px;
+    border-left-width: 2px;
+    border-top-left-radius: 6px;
+  }
+  .gold-corner-tl::before {
+    top: -3px;
+    left: -3px;
+  }
+  .gold-corner-tr {
+    top: 0;
+    right: 0;
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-top-right-radius: 6px;
+  }
+  .gold-corner-tr::before {
+    top: -3px;
+    right: -3px;
+  }
+  .gold-corner-bl {
+    bottom: 0;
+    left: 0;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-bottom-left-radius: 6px;
+  }
+  .gold-corner-bl::before {
+    bottom: -3px;
+    left: -3px;
+  }
+  .gold-corner-br {
+    bottom: 0;
+    right: 0;
+    border-bottom-width: 2px;
+    border-right-width: 2px;
+    border-bottom-right-radius: 6px;
+  }
+  .gold-corner-br::before {
+    bottom: -3px;
+    right: -3px;
   }
 </style>

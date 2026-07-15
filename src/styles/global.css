@@ -2,8 +2,8 @@
    LoP-Simulator/src/index.css so the two sites read as one brand.
    If you tweak colors in the simulator, mirror the change here. */
 :root {
-  --gold: #cda94f;
-  --gold-bright: #e8c977;
+  --gold: #b3873a;
+  --gold-bright: #d1a352;
   --divider: #c9a94e;
   --sidebar-bg: #1a1b1f;
   --sidebar-bg-2: #212226;
