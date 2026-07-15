@@ -17,6 +17,12 @@ const { title, description = 'Leylines of Power — a trading card game of Nexus
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@700;900&family=Source+Sans+Pro:wght@400&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="site-shell">
@@ -26,7 +32,8 @@ const { title, description = 'Leylines of Power — a trading card game of Nexus
           <span>Leylines of Power</span>
         </a>
         <nav class="site-nav">
-          <a class="play-link" href="https://play.leylinesofpower.com">Play Now</a>
+          <a class="nav-link" href="/rules">Rules</a>
+          <a class="play-link btn-gold" href="https://play.leylinesofpower.com">Play Now</a>
         </nav>
       </header>
 
@@ -60,8 +67,10 @@ const { title, description = 'Leylines of Power — a trading card game of Nexus
     align-items: center;
     gap: 10px;
     text-decoration: none;
+    font-family: 'Cinzel Decorative', 'Cinzel', serif;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 17px;
+    letter-spacing: 0.5px;
     color: var(--gold-bright);
   }
   .brand img {
@@ -73,17 +82,22 @@ const { title, description = 'Leylines of Power — a trading card game of Nexus
   .site-nav {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 20px;
+  }
+  .nav-link {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--fg);
+    opacity: 0.8;
+  }
+  .nav-link:hover {
+    opacity: 1;
+    color: var(--gold-bright);
   }
   .play-link {
-    background: linear-gradient(165deg, var(--gold-bright), var(--gold));
-    color: #241f1a;
-    font-weight: 700;
-    text-decoration: none;
     padding: 10px 20px;
-    border-radius: 8px;
     font-size: 14px;
-    letter-spacing: 0.2px;
     box-shadow: 0 4px 14px rgba(205, 169, 79, 0.25);
   }
   .site-main {

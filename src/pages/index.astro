@@ -3,46 +3,265 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 // First-draft copy — easy to swap out once real marketing copy/lore is
 // ready to pull in from the existing lore/rules material.
-const tagline = 'Command a Nexus Lord. Master the Leylines. Claim the affinity war.';
 const pitch =
-  "Leylines of Power is a trading card game of elemental affinities and legendary avatars. " +
-  'Choose a Nexus Lord, channel the power of the Leylines, and out-maneuver your rival across ' +
-  'creatures, chants, and relics drawn from six warring affinities. The game is in active ' +
-  'playtesting — jump into the sandbox simulator to try it yourself.';
+  'Choose one of six legendary affinities and command a powerful Nexus Lord whose decisions ' +
+  'shape the battlefield. Build armies, wield ancient relics, channel the living Leylines, and ' +
+  'ascend into a force capable of changing the fate of Aetheris.';
+const ctaLabel = 'Begin your Ascension';
+
+// Simple monochrome line icons (stroke=currentColor) for the feature-card
+// badges — no external asset needed, and `currentColor` picks up the badge's
+// gold color for free.
+const ICONS = {
+  cards:
+    '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="6" y="3" width="12" height="16" rx="1.5" transform="rotate(-8 12 11)"/><rect x="6" y="5" width="12" height="16" rx="1.5"/></svg>',
+  zap:
+    '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3 4 14h6l-1 7 9-11h-6l1-7Z"/></svg>',
+  layout:
+    '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="10" width="8" height="11" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/></svg>',
+};
+
+// Each pillar's art is a standalone full-art image (not tiles cropped from a
+// shared sprite sheet, as this used to work): scaled to the container's full
+// width and anchored to the top, so the `.lord-card-img` box's own fixed
+// aspect-ratio (253/245, near-square) crops away whatever's left over off
+// the BOTTOM of the source art. Each source is a tall portrait with its
+// subject in the upper portion, so keeping the top and cropping the bottom
+// (rather than centering) keeps the subject framed instead of cutting off a
+// head or losing the scene's focal point.
+function standaloneTopCropStyle(src: string) {
+  return `background-image: url('${src}'); background-size: 100% auto; background-position: top center;`;
+}
+
+const pillars = [
+  {
+    title: 'Command a Nexus Lord',
+    iconImg: '/ornaments/icon-crown.png',
+    boxFrame: '/ornaments/box-frame-2.png',
+    standaloneImg: '/pillars/valthorian-full-art.png',
+    text: 'Your Nexus Lord defines your deck and commands your forces. Shape the battle through powerful Edicts, then Ascend when the war demands a champion.',
+  },
+  {
+    title: 'Master the Leylines',
+    iconImg: '/ornaments/icon-spiral.png',
+    boxFrame: '/ornaments/box-frame-2.png',
+    standaloneImg: '/pillars/divinity-leyline.jpg',
+    text: 'Channel Resonance to summon allies and wield ancient magic. Bank Focus for decisive abilities, then unleash it when the moment is right.',
+  },
+  {
+    title: 'Every Decision Matters',
+    iconImg: '/ornaments/icon-swords.png',
+    boxFrame: '/ornaments/box-frame-2.png',
+    standaloneImg: '/pillars/deflect-full-art.png',
+    text: 'Players alternate actions, creating constant opportunities to adapt, counter, and press an advantage. Every move changes what your rival can do next.',
+  },
+];
+
+// Best-GIF capture notes for whoever adds media to these later (not
+// rendered — just tracking what each block's demo clip should show):
+//   1. Full Deck Builder — filter by Affinity → add several cards → deck
+//      count and legality update → save the deck.
+//   2. Automatic Resonance — select a card → valid cast is confirmed →
+//      Resonance is spent automatically → card enters the appropriate zone.
+//   3. Intuitive Layout — (no capture note given yet).
+const commandFeatures = [
+  {
+    icon: ICONS.cards,
+    eyebrow: 'Build Your Deck',
+    heading: 'From Idea to Battlefield in Minutes.',
+    text: 'Explore the complete card pool by Affinity, rarity, card type, and cost. Build legal decks directly in your browser, save multiple lists, and refine your strategy between games—without importing files or managing spreadsheets.',
+    closing: 'Browse. Build. Save. Play.',
+  },
+  {
+    icon: ICONS.zap,
+    eyebrow: 'Effortless Casting',
+    heading: 'Cast Cards. Not Calculations.',
+    text: 'When you cast a card, the simulator automatically spends the Resonance you have generated and updates the game state for you. No manual subtraction, no forgotten payments—just faster turns and more attention on your next move.',
+    closing: 'Stay in the battle, not in the bookkeeping.',
+  },
+  {
+    icon: ICONS.layout,
+    eyebrow: 'Designed for Clarity',
+    heading: 'Everything Has Its Place.',
+    text: 'Your hand, field, Leylines, Focus, Dustrealm, and action history remain clear at a glance. Inspect cards, move game pieces, choose targets, and resolve effects through an interface designed to keep deep games readable and every action easy to follow.',
+    closing: 'Less time managing the board. More time mastering it.',
+  },
+];
 ---
 
 <BaseLayout title="Leylines of Power">
   <section class="hero">
-    <img class="hero-logo" src="/icons/lop-logo.png" alt="Leylines of Power" />
-    <h1>{tagline}</h1>
-    <p class="pitch">{pitch}</p>
-    <a class="cta" href="https://play.leylinesofpower.com">Play Now — Free Sandbox Simulator</a>
-    <p class="cta-note">Runs right in your browser. No download, no install.</p>
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-inner">
+      <h1>Become a <span class="nexus-emphasis">Nexus Lord.</span><br />Command the Leylines. Shape the fate of Aetheris.</h1>
+      <p class="pitch">{pitch}</p>
+      <p class="pitch pitch-kicker">Every game tells a new story.</p>
+      <a class="cta btn-gold" href="https://play.leylinesofpower.com">{ctaLabel}</a>
+      <p class="cta-note">Runs right in your browser. No download, no install.</p>
+    </div>
+  </section>
+
+  <section class="lords">
+    <h2 class="lords-heading">Forge Your <span class="accent-word">Strategy.</span></h2>
+    <img class="ornament-divider" src="/ornaments/divider.png" alt="" />
+    <div class="lords-grid">
+      {
+        pillars.map((pillar) => (
+          <div class="lord-card" style={`--frame: url('${pillar.boxFrame}');`}>
+            <img class="lord-corner lord-corner-tl" src="/ornaments/corner-bracket.png" alt="" />
+            <img class="lord-corner lord-corner-tr" src="/ornaments/corner-bracket.png" alt="" />
+            <img class="lord-corner lord-corner-bl" src="/ornaments/corner-bracket.png" alt="" />
+            <img class="lord-corner lord-corner-br" src="/ornaments/corner-bracket.png" alt="" />
+            <div class="lord-card-img" style={standaloneTopCropStyle(pillar.standaloneImg)} role="img" aria-label={pillar.title} />
+            <div class="lord-card-body">
+              <img class="lord-card-icon" src={pillar.iconImg} alt="" />
+              <h3>{pillar.title}</h3>
+              <p>{pillar.text}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <div class="divider-line-text lords-cta-divider">
+      <img class="ornament-divider ornament-divider-flank" src="/ornaments/divider.png" alt="" />
+      <p>Every choice shapes the battle. Every battle shapes your legend.</p>
+      <img class="ornament-divider ornament-divider-flank ornament-divider-flip" src="/ornaments/divider.png" alt="" />
+    </div>
+    <a class="cta btn-gold" href="https://play.leylinesofpower.com">{ctaLabel}</a>
+    <p class="cta-note">Free browser playtest. No download, no install.</p>
+  </section>
+
+  <section class="tools">
+    <p class="eyebrow">Play Tools</p>
+    <div class="heading-divider"><span class="hd-line"></span><span class="hd-diamond">◆</span><span class="hd-line"></span></div>
+    <h2>Everything You Need to <span class="accent-word">Command the Battlefield.</span></h2>
+    <div class="command-features">
+      {
+        commandFeatures.map((feature) => (
+          <div class="command-feature">
+            <div class="feature-icon"><span class="feature-icon-inner" set:html={feature.icon} /></div>
+            <p class="command-feature-eyebrow">{feature.eyebrow}</p>
+            <h3>{feature.heading}</h3>
+            <p class="command-feature-text">{feature.text}</p>
+            {feature.closing && <p class="command-feature-closing">{feature.closing}</p>}
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <h2>Open the <span class="accent-word">simulator.</span></h2>
+    <div class="divider-line-text">
+      <span class="dl-diamond">◆</span>
+      <span class="dl-line"></span>
+      <p>Free, in-browser, no account required to start.</p>
+      <span class="dl-line"></span>
+      <span class="dl-diamond">◆</span>
+    </div>
+    <a class="cta btn-gold" href="https://play.leylinesofpower.com">{ctaLabel}</a>
   </section>
 </BaseLayout>
 
 <style>
-  .hero {
-    max-width: 720px;
+  section {
+    max-width: 1080px;
     margin: 0 auto;
-    padding: 12vh 24px 10vh;
+    padding: 64px 24px;
+  }
+  h2 {
+    margin: 6px 0 0;
+    font-family: 'Cinzel', serif;
+    font-weight: 400;
+    font-size: clamp(24px, 3.2vw, 34px);
+    color: var(--fg);
+  }
+
+  /* Hero — full-bleed background art (concept illustration) with a slow
+     Ken Burns drift, plus a dark gradient overlay so the logo/copy/CTA stay
+     readable against a busy, brightly-lit painting. Split into three
+     stacked layers instead of one `.hero` background because the animated
+     layer and the static gradient need independent `transform`/paint
+     lifecycles — animating `background-position`/`size` directly is janky
+     compared to animating `transform` on its own layer, and the gradient
+     must stay perfectly still on top of it. `.hero` itself overrides the
+     shared `section` rule above (max-width/margin) to span the full
+     viewport; `.hero-inner` re-establishes the same centered content column
+     every other section uses. */
+  .hero {
+    position: relative;
+    max-width: none;
+    margin: 0;
+    padding: 0 24px;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('/hero/hero-bg.png');
+    background-size: cover;
+    background-position: center 30%;
+    animation: hero-ken-burns 28s ease-in-out infinite alternate;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    /* Diagonal rather than a flat vertical fade: brighter over the angel on
+       the left, darker toward the lower-right where the text/CTA sit —
+       one gradient does both jobs (left/right brightness split, and enough
+       bottom darkening for the CTA) instead of stacking two full layers
+       and over-darkening. */
+    background-image: linear-gradient(
+      120deg,
+      rgba(26, 27, 31, 0) 0%,
+      rgba(26, 27, 31, 0.25) 35%,
+      rgba(26, 27, 31, 0.76) 65%,
+      rgba(26, 27, 31, 0.97) 100%
+    );
+  }
+  @keyframes hero-ken-burns {
+    from {
+      transform: scale(1) translate(0, 0);
+    }
+    to {
+      transform: scale(1.08) translate(-1.5%, -1%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-bg {
+      animation: none;
+    }
+  }
+  .hero-inner {
+    position: relative;
+    max-width: 720px;
+    /* Shifted toward the right side of the hero (not centered in the full
+       viewport) so the angel figure on the left of the background art
+       stays clearly visible — the content block itself is still
+       center-aligned internally, just positioned off to the right. */
+    margin: 0 5% 0 auto;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 18px;
+    padding-top: calc(16vh + 50px);
+    padding-bottom: 12vh;
   }
-  .hero-logo {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
-    margin-bottom: 8px;
-  }
-  h1 {
+  .hero h1 {
     margin: 0;
+    font-family: 'Cinzel', serif;
+    font-weight: 400;
     font-size: clamp(28px, 4vw, 42px);
     line-height: 1.25;
     color: var(--gold-bright);
+  }
+  /* Same Cinzel Decorative face as the other "Nexus Lord" emphasis spots,
+     but sized to match the surrounding headline rather than the 1.35em
+     bump used elsewhere — the hero heading is already large on its own. */
+  .hero h1 .nexus-emphasis {
+    font-size: 1em;
   }
   .pitch {
     margin: 0;
@@ -51,21 +270,351 @@ const pitch =
     font-size: 16px;
     line-height: 1.6;
   }
+  .pitch-kicker {
+    font-style: italic;
+    font-weight: 600;
+    font-size: 22px;
+    opacity: 1;
+    color: var(--gold-bright);
+  }
   .cta {
     margin-top: 12px;
-    background: linear-gradient(165deg, var(--gold-bright), var(--gold));
-    color: #241f1a;
-    font-weight: 700;
-    text-decoration: none;
-    padding: 16px 32px;
-    border-radius: 10px;
-    font-size: 17px;
-    letter-spacing: 0.2px;
-    box-shadow: 0 8px 24px rgba(205, 169, 79, 0.3);
+    padding: 14.9px 29.8px;
+    font-size: 15.8px;
   }
   .cta-note {
     margin: 0;
     color: var(--muted-fg);
     font-size: 13px;
+  }
+
+  /* Nexus Lords strip */
+  .lords {
+    text-align: center;
+    border-top: 1px solid rgba(201, 169, 78, 0.15);
+  }
+  /* Decorative asset ornaments (line-diamond dividers, pillar icon badges)
+     come from hand-illustrated PNGs that ship in a duller, coppery brass
+     tone. This filter recipe was tuned against the site's --gold (#cda94f)
+     by sampling rendered pixel averages via an offscreen canvas until the
+     brightest parts of the art matched — reused everywhere below so every
+     ornament reads as the same "gold," not a mix of tones. */
+  .ornament-divider,
+  .lord-card-icon {
+    filter: brightness(1.5) saturate(1.35) hue-rotate(6deg);
+  }
+  .ornament-divider {
+    display: block;
+    width: 160px;
+    height: auto;
+    margin: 14px auto 0;
+  }
+  .lords-cta-divider {
+    gap: 14px;
+  }
+  .ornament-divider-flank {
+    width: 90px;
+    margin: 0;
+    flex-shrink: 0;
+  }
+  .ornament-divider-flip {
+    transform: scaleX(-1);
+  }
+  /* "Nexus Lord." gets the same carved-stone display face as the LOP logo
+     lettering (Cinzel Decorative — same family as the button font, just
+     the more ornate companion cut) and reads noticeably bigger than
+     "Choose your", which stays in the page's plain heading font. */
+  .nexus-emphasis {
+    display: inline-block;
+    font-family: 'Cinzel Decorative', 'Cinzel', serif;
+    font-size: 1.35em;
+    color: var(--gold-bright);
+  }
+
+  /* Shared section-heading ornament: a short line–diamond–line rule
+     between the eyebrow and the heading, and an italic serif accent word
+     inside the heading itself — used on every section below the hero. */
+  .heading-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 10px 0 0;
+  }
+  .hd-line {
+    width: 50px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+  .hd-diamond {
+    color: var(--gold);
+    font-size: 9px;
+    line-height: 1;
+  }
+  /* Same Cinzel Decorative face as "Nexus Lord" above the fold — every
+     heading's accent word shares one consistent display treatment. */
+  .accent-word {
+    font-family: 'Cinzel Decorative', 'Cinzel', serif;
+    font-weight: 700;
+    color: var(--gold-bright);
+  }
+
+  /* Same line–diamond rule, but flanking a single line of text instead of
+     sitting between an eyebrow and a heading — used right above the final
+     CTA button. */
+  .divider-line-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+  }
+  .final-cta .divider-line-text p {
+    color: var(--gold-bright);
+    font-size: 15px;
+  }
+  .dl-line {
+    width: 50px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+  .dl-diamond {
+    color: var(--gold);
+    font-size: 9px;
+  }
+
+  /* Diamond icon badge — rotate the box 45deg, counter-rotate the icon
+     inside it back to upright. Centered standalone above a
+     `.command-feature`'s text (plain positive margin); previously also
+     used straddling a bordered `.feature-card`'s top edge with a negative
+     margin, but that card treatment has been removed. */
+  .feature-icon {
+    width: 42px;
+    height: 42px;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--sidebar-bg-2);
+    border: 2px solid var(--gold);
+    border-radius: 4px;
+    transform: rotate(45deg);
+    color: var(--gold);
+  }
+  .feature-icon-inner {
+    display: flex;
+    transform: rotate(-45deg);
+  }
+  .lords-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+  }
+  /* All three cards deliberately share ONE box-frame asset (box-frame-2.png,
+     chosen via the --frame custom property set inline in pillars.map) —
+     the three source PNGs measured out with the same border *thickness*
+     (~2-3px) but wildly different *insets* (how far that line sits from the
+     image edge: 1px / 3px / 10px respectively), so mixing them per-card is
+     what actually caused the "different border thickness on every card"
+     look. One file removes that inconsistency outright.
+
+     The frame is drawn via `border-image` (9-slice), not a stretched
+     background: a plain background-image stretched 100%/100% scales its
+     horizontal and vertical line thickness by different amounts on a card
+     this much taller than it is wide (border thickness is a fixed pixel
+     measurement in the source, so it drifts out of proportion whenever the
+     box's aspect ratio isn't square) — border-image instead keeps the
+     corner art fixed size and only stretches the straight edges' *length*,
+     so the rendered line thickness is the same on all four sides no matter
+     the card's shape. Slice was measured directly from the source PNG's
+     alpha channel (inset ~1-8px, thickness ~2-3px at native 268px size);
+     16 leaves margin on both. Painted on a ::before overlay, not directly on
+     `.lord-card`'s own border, so the brightening filter (same recipe used
+     on the other ornament assets) colorizes only the frame graphic, not the
+     card's dark fill or the art/text sitting on top of it. */
+  .lord-card {
+    position: relative;
+    background: var(--sidebar-bg-2);
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .lord-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    border-style: solid;
+    border-width: 5px;
+    border-image-source: var(--frame);
+    border-image-slice: 16;
+    border-image-width: 5px;
+    border-image-repeat: stretch;
+    filter: brightness(1.5) saturate(1.35) hue-rotate(6deg);
+  }
+  .lord-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  }
+  /* Small accent bracket tucked tight into each of the card's four corners
+     (2px in from the edge). The source art is a single top-left-oriented
+     bracket — the other three corners are the same image mirrored via
+     `transform` (scaleX/scaleY flip it across an axis, rotate would work
+     too but flipping keeps the brush-stroke direction looking consistent
+     rather than upside-down) instead of needing four separate assets. */
+  .lord-corner {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    z-index: 3;
+    pointer-events: none;
+    filter: brightness(1.5) saturate(1.35) hue-rotate(6deg);
+  }
+  .lord-corner-tl {
+    top: 2px;
+    left: 2px;
+  }
+  .lord-corner-tr {
+    top: 2px;
+    right: 2px;
+    transform: scaleX(-1);
+  }
+  .lord-corner-bl {
+    bottom: 2px;
+    left: 2px;
+    transform: scaleY(-1);
+  }
+  .lord-corner-br {
+    bottom: 2px;
+    right: 2px;
+    transform: scale(-1, -1);
+  }
+  /* The source frame art's own gold line isn't equidistant from its four
+     edges (measured: it sits almost flush against the left/right edges but
+     noticeably inset from the top/bottom) — stretched via border-image at a
+     small width like this, that shows up as extra empty space between the
+     line and the art on the sides versus almost none on top. Keeping this
+     margin tight (rather than matching the fuller border-width reservation
+     above) is what closes most of that gap back down to roughly even. */
+  .lord-card-img {
+    position: relative;
+    display: block;
+    width: calc(100% - 10px);
+    margin: 5px auto 0;
+    aspect-ratio: 253 / 245;
+    background-repeat: no-repeat;
+    border-radius: 3px;
+  }
+  .lord-card-body {
+    position: relative;
+    padding: 26px 20px 22px;
+  }
+  /* The icon PNGs are already self-contained diamond badges (own border +
+     dark fill baked in), unlike the inline-SVG `.feature-icon` badge used by
+     the Ways/Tools cards below, which draws that diamond frame in CSS around
+     a plain glyph — so this just positions the image straddling the
+     image/body seam, no rotate-45/-45 counter-rotation hack needed. */
+  .lord-card-icon {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 58px;
+    height: 58px;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .lords-cta-divider {
+    margin-top: 40px;
+  }
+  .lords .cta-note {
+    margin-top: 14px;
+  }
+
+  .tools {
+    text-align: center;
+    border-top: 1px solid rgba(201, 169, 78, 0.15);
+  }
+  .lord-card-body h3 {
+    margin: 0 0 8px;
+    font-family: 'Cinzel', serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--gold-bright);
+    font-size: 16px;
+  }
+  /* Each of the three "command the battlefield" features is a full-width
+     stacked block (not a grid of small cards, like the site's other
+     feature groups) — there's a lot more copy per item here, so a
+     3-column grid would leave the shorter paragraphs looking sparse next
+     to the longer ones. A thin top-border rule between blocks (mirroring
+     the divider between whole page sections) reads as a break without
+     needing a boxed card around each one. */
+  .command-features {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  }
+  .command-feature {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .command-feature:not(:first-child) {
+    padding-top: 56px;
+    border-top: 1px solid rgba(201, 169, 78, 0.15);
+  }
+  .command-feature-eyebrow {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .command-feature h3 {
+    margin: 8px 0 0;
+    font-family: 'Cinzel', serif;
+    font-weight: 400;
+    font-size: clamp(20px, 2.4vw, 26px);
+    color: var(--fg);
+  }
+  .command-feature-text {
+    margin: 14px 0 0;
+    color: var(--fg);
+    opacity: 0.85;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .command-feature-closing {
+    margin: 14px 0 0;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--gold-bright);
+    font-size: 17px;
+  }
+
+  /* Final CTA */
+  .final-cta {
+    text-align: center;
+    border-top: 1px solid rgba(201, 169, 78, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+  .final-cta h2 {
+    margin: 0;
+  }
+  .final-cta p {
+    margin: 0;
+    color: var(--muted-fg);
+    font-size: 14px;
+  }
+  .final-cta .cta {
+    margin-top: 8px;
   }
 </style>

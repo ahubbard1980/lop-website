@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Rules — Leylines of Power" description="The rules of Leylines of Power — coming soon.">
+  <section class="placeholder">
+    <p class="eyebrow">Rules</p>
+    <h1>The rulebook is being rewritten.</h1>
+    <p>
+      Leylines of Power is still in active playtesting, and the rules text is being revised to match.
+      A full, readable rules page is coming here soon — in the meantime, the simulator enforces nothing,
+      so playtesters are already using the latest draft directly.
+    </p>
+    <a class="cta btn-gold" href="/">Back to Home</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .placeholder {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 18vh 24px 20vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+  h1 {
+    margin: 6px 0 0;
+    font-size: clamp(24px, 3.2vw, 34px);
+    color: var(--gold-bright);
+  }
+  p {
+    margin: 0;
+    color: var(--fg);
+    opacity: 0.85;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .cta {
+    margin-top: 12px;
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+</style>
