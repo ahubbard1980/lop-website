@@ -1,194 +1,879 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+// "The Sixth Volley" — the first illustrated lore feature. The story text
+// is the designer's copy, ported verbatim from their standalone mockup
+// (Downloads/index.html); the styling is rebuilt here in the site's own
+// look since the mockup's stylesheet never shipped. Illustrations live in
+// public/lore/ (converted from the designer's renders; hero eager, the
+// rest lazy).
 ---
 
-<BaseLayout title="Lore — Leylines of Power" description="The world of Aetheris — stories, places, and powers of Leylines of Power.">
-  <div class="content-bg">
-    <section class="lore-wrap">
-      <p class="eyebrow">Lore</p>
-      <h1>Aureth's Watch</h1>
-
-      <!-- Living illustration: the designer's motion study of Aureth's Watch
-           at dawn — a slow camera drift over the painting with a pulsing
-           sunrise, an arcane glow, and two drifting mist layers, all pure
-           CSS over a single image. Every animation is disabled under
-           prefers-reduced-motion. -->
-      <div class="frame">
-        <img class="art" src="/lore/aureths-watch.jpg" alt="Aureth's Watch at dawn" />
-        <div class="sun"></div>
-        <div class="arcane"></div>
-        <div class="mist"></div>
-        <div class="mist2"></div>
-        <div class="vignette"></div>
+<BaseLayout title="The Sixth Volley — Leylines of Power" description="A story from Aetheris — the day Lumoria lost its Shield.">
+  <article class="sixth-volley">
+    <header class="sv-hero">
+      <img
+        class="sv-hero-art"
+        src="/lore/hero.jpg"
+        alt="The Nexus Lords of Lumoria stand above the Evershine Plains at dawn"
+      />
+      <div class="sv-hero-scrim"></div>
+      <div class="sv-hero-copy">
+        <p class="sv-kicker">A Story From Aetheris</p>
+        <div class="sv-rule"><span></span><i></i><span></span></div>
+        <h1 class="sv-title">THE SIXTH <strong>VOLLEY</strong></h1>
+        <p class="sv-subtitle">The day Lumoria lost its Shield.</p>
+        <blockquote class="sv-epigraph">
+          “Every kingdom remembers Evershine differently. The Leylines remember what we chose.”
+          <cite>— Aramis, Royal Historian of Silverdawn</cite>
+        </blockquote>
       </div>
+    </header>
 
-      <p class="caption">Aureth's Watch at dawn.</p>
-    </section>
-  </div>
+    <main class="sv-story">
+      <p class="sv-lede sv-dropcap sv-p">Tomas had been taught three things about carrying the High Marshal's standard: keep it visible, keep it upright, and if Gabriel ever reached for it himself, give it to him.</p>
+      <p class="sv-hook sv-p">No one had explained what to do if he pointed it at his own army.</p>
+      <p class="sv-p">Hours before that became a problem, Tomas still believed carrying the standard was the greatest honor of his life.</p>
+      <p class="sv-p">He stood beneath the western wall of Aureth's Watch in the last blue light before dawn, rubbing at a silver fitting that had been clean ten minutes earlier. Above him, the folded cloth bore the sunburst of Lumoria, stitched in gold.</p>
+      <p class="sv-p">"Keep polishing that and you'll rub Aureth himself off the staff."</p>
+      <p class="sv-p">Tomas nearly dropped it. High Captain Kaelen stood behind him, amusement pulling at the scar beneath his left eye.</p>
+      <p class="sv-p">"I was checking the fitting, sir."</p>
+      <p class="sv-p">Kaelen glanced at the sleeve Tomas had been using. "With advanced military equipment, apparently."</p>
+      <p class="sv-p">Tomas straightened. "Yes, sir."</p>
+      <p class="sv-p">Kaelen was older than the statues made him look. His hair had gone mostly grey, and there was something reassuring about discovering that one of Lumoria's great commanders could look tired before sunrise.</p>
+      <p class="sv-p">"You know the signals?" Kaelen asked.</p>
+      <p class="sv-p">"Yes, sir."</p>
+      <p class="sv-p">"Advance east." Tomas angled the standard. "Retreat." He reversed it. "Rally." Tomas brought the staff upright and turned the crest toward the line.</p>
+      <p class="sv-p">Kaelen nodded toward Lumoria's center. "Breach within."</p>
+      <p class="sv-p">Tomas hesitated. That was the signal every soldier knew and almost none expected ever to see. He lowered the standard toward the center of the army.</p>
+      <p class="sv-p">Kaelen's amusement disappeared. "What happens?"</p>
+      <p class="sv-p">"The eastern companies wheel inward. Second line closes behind them. Contain the breach and await direct command."</p>
+      <p class="sv-p">"How far?"</p>
+      <p class="sv-p">"To the marked positions."</p>
+      <p class="sv-p">"And after that?"</p>
+      <p class="sv-p">"They stop."</p>
+      <p class="sv-p">"Unless?"</p>
+      <p class="sv-p">"Unless the High Marshal orders them forward."</p>
+      <p class="sv-p">Kaelen nodded. "Good."</p>
+      <p class="sv-p">Tomas raised the standard again. His father had taught him that signal before Tomas was old enough to hold a practice spear - not because he expected his son to carry Gabriel's banner one day, but because every soldier in Lumoria knew the story of Solenne.</p>
+      <p class="sv-p">Twenty-one years earlier, enemies had broken into the city behind its defenders while another force attacked the eastern gate. The standard-bearer had fallen. A young captain named Gabriel had caught the silver staff before it struck the ground and lowered it toward the courtyard. Soldiers cut off from their officers saw the signal through the smoke and turned.</p>
+      <p class="sv-p">Among them had been Tomas's father.</p>
+      <p class="sv-p">Solenne had left Marek with a limp he carried to this day. It had also given him a story he never seemed to tire of telling.</p>
+      <p class="sv-p">Kaelen looked toward the fortress gate. "Here comes the man himself. Try not to drop his legend."</p>
+      <p class="sv-p">Gabriel crossed the courtyard with two officers at his side. He was already dressed for battle, but he wore none of the gilded armor Tomas had seen in paintings. His breastplate was scratched. The leather beneath one shoulder had been repaired rather than replaced. His sword hung in a plain scabbard darkened with age.</p>
+      <p class="sv-p">The man wearing it was harder to reconcile with something ordinary.</p>
+      <p class="sv-p">Tomas had seen Gabriel before. Everyone had. From parade lines, from crowds outside the Hall of Radiance, once from an upper gallery in Solreach when the High Marshal addressed newly sworn soldiers.</p>
+      <p class="sv-p">Standing six paces away was different.</p>
+      <p class="sv-p">The Shield of Lumoria looked tired.</p>
+      <p class="sv-p">Gabriel dismissed one officer, gave the other a final instruction, then noticed Tomas. "You're Marek's boy."</p>
+      <p class="sv-p">Tomas forgot every form of address he had learned. "Yes."</p>
+      <p class="sv-p">Kaelen cleared his throat.</p>
+      <p class="sv-p">Tomas recovered. "Yes, Marshal."</p>
+      <p class="sv-p">Gabriel ignored the mistake. "How is his leg?"</p>
+      <p class="sv-p">Tomas stared at him. "It pains him in winter."</p>
+      <p class="sv-p">"It pained him in summer too. He simply complained less when women were nearby."</p>
+      <p class="sv-p">Kaelen laughed. Tomas did not know whether he was permitted to.</p>
+      <p class="sv-p">Gabriel looked up at the standard. "He told you about Solenne?"</p>
+      <p class="sv-p">"More times than I can count."</p>
+      <p class="sv-p">"He tells it wrong."</p>
+      <p class="sv-p">Tomas blinked. "Sir?"</p>
+      <p class="sv-p">"He insists we held the eastern gate."</p>
+      <p class="sv-p">"My whole life."</p>
+      <p class="sv-p">"The gate was gone before breakfast."</p>
+      <p class="sv-p">Kaelen folded his arms. "I've told him that."</p>
+      <p class="sv-p">"He says a story needs a gate."</p>
+      <p class="sv-p">"It does sound better," Tomas admitted.</p>
+      <p class="sv-p">Gabriel smiled, and for a moment he was not the figure carved above military halls or the name children shouted during festival games. He was simply a man who remembered Tomas's father.</p>
+      <p class="sv-p">"What else did Marek tell you?" Gabriel asked.</p>
+      <p class="sv-p">"That when the standard rose through the smoke, everyone knew where to go."</p>
+      <p class="sv-p">Gabriel looked at the cloth above them. "He was supposed to be watching his captain."</p>
+      <p class="sv-p">"He says his captain was dead."</p>
+      <p class="sv-p">"Then for once he had a reasonable excuse."</p>
+      <p class="sv-p">Tomas laughed before he could stop himself.</p>
+      <p class="sv-p">Gabriel put a hand on his shoulder. "Stay close today."</p>
+      <p class="sv-p">"Yes, Marshal."</p>
+      <p class="sv-p">"If you lose me in the smoke, find Kaelen."</p>
+      <p class="sv-p">Kaelen sighed. "You could try not disappearing into the smoke."</p>
+      <p class="sv-p">"I could."</p>
+      <p class="sv-p">"You won't."</p>
+      <p class="sv-p">"No."</p>
+      <p class="sv-p">A voice behind them interrupted. "Then perhaps one of you should finally learn."</p>
+      <p class="sv-p">Seris entered the courtyard, and every nearby soldier straightened without being ordered.</p>
+      <p class="sv-p">Tomas had grown up beneath images of her: Seris the Radiant above the gates of Solreach, Seris standing before kneeling armies, Seris holding Radiance against a darkness that covered half the sky.</p>
+      <p class="sv-p">Paintings had never shown the exhaustion around her eyes.</p>
+      <p class="sv-p">Her wings were folded closely behind her, white feathers catching the first light. Radiance hung from one arm. The shield was less ornamental than Tomas expected. Its edge bore scars.</p>
+      <p class="sv-p">Seris looked directly at Gabriel. "You slept."</p>
+      <p class="sv-p">Something in his expression changed. Barely.</p>
+      <p class="sv-p">"I did."</p>
+      <p class="sv-p">"Entirely?"</p>
+      <p class="sv-p">"Several hours."</p>
+      <p class="sv-p">"That may be a record."</p>
+      <p class="sv-p">"I intend to commemorate it."</p>
+      <p class="sv-p">Seris glanced toward the statues inside the fortress. "With another one of those?"</p>
+      <p class="sv-p">Gabriel grimaced, and she laughed.</p>
+      <p class="sv-p">Tomas suddenly felt as though he were standing inside a conversation that had begun years before he was born.</p>
+      <p class="sv-p">Seris noticed him. "New bearer?"</p>
+      <p class="sv-p">"Three weeks," Gabriel said. "Tomas."</p>
+      <p class="sv-p">The fact that she knew his name startled him almost as much as Gabriel remembering his father.</p>
+      <p class="sv-p">Seris nodded toward the standard. "Keep him where we can find him."</p>
+      <p class="sv-p">Tomas was not sure whether she meant the banner or Gabriel.</p>
+      <p class="sv-p">Kaelen apparently was. "I've been trying for thirty years."</p>
+      <p class="sv-p">Gabriel turned toward the gate. "And failing admirably."</p>
+      <p class="sv-p">Seris laughed again.</p>
+      <p class="sv-p">Tomas would remember that sound later. He would spend years wondering whether Gabriel remembered it too.</p>
+
+      <figure class="sv-media sv-contained">
+        <img src="/lore/courtyard.jpg" alt="Tomas with Gabriel, Kaelen and Seris in the courtyard of Aureth's Watch" loading="lazy" />
+        <figcaption class="sv-media-overlay sv-overlay-right">
+          <span class="sv-kicker">Before Evershine</span>
+          <span class="sv-overlay-copy">For a few quiet minutes, they were simply together.</span>
+        </figcaption>
+      </figure>
+
+      <div class="sv-ornament"><span class="sv-diamond"></span></div>
+
+      <p class="sv-p">Aureth's Watch stood at the western edge of the Evershine Plains, guarding the approach into Lumoria. From its walls, Tomas could see farmland stretching east toward Evershine, broken by roads leading toward Solenne and deeper into the kingdom.</p>
+      <p class="sv-p">Behind him rose the fortress that had guarded those roads for nearly three centuries.</p>
+      <p class="sv-p">Aureth the Unyielding had held it for eighty-three days against an army many times the size of his own. Every knight assigned to the Watch swore an oath beneath his statue before riding west.</p>
+      <p class="sv-p">Five words were carved into the stone beneath his feet.</p>
+      <div class="sv-pull"><strong>Stand as Aureth stood.</strong></div>
+      <p class="sv-p">The fortress had never fallen. But it could not shelter Seris's entire army, and walls were worthless if the roads feeding them were cut. So Lumoria would defend Aureth's Watch from the plains outside it.</p>
+      <p class="sv-p">Tomas understood that much.</p>
+      <p class="sv-p">The rest of the battle seemed to belong to people who saw a different world than he did.</p>
+      <p class="sv-p">Lorian of Silverdawn had spent two days turning empty farmland into geometry. His Arcane scholars drove crystal stakes into the ground and joined them with lines Tomas could barely see until magic moved through them. Then enormous patterns flashed beneath the grass, intersecting at angles that became uncomfortable if stared at too long.</p>
+      <p class="sv-p">Tomas once watched an apprentice position a crystal scarcely a finger's width from its mark.</p>
+      <p class="sv-p">Lorian made him reset twelve yards of the ward.</p>
+      <p class="sv-p">"It would have worked," the apprentice protested.</p>
+      <p class="sv-p">Lorian did not look up from his calculations. "Yes. Incorrectly."</p>
+      <p class="sv-p">The apprentice started again.</p>
+      <p class="sv-p">Elowen's people were stranger.</p>
+      <p class="sv-p">They arrived carrying soil.</p>
+      <p class="sv-p">Not siege engines. Not steel. Soil.</p>
+      <p class="sv-p">They spread it through trenches along the western approaches. Elowen walked those trenches barefoot, occasionally stopping to press something into the earth. By evening, shoots appeared. By midnight they were saplings. At dawn, Tomas watched a wall of intertwined trunks rise high enough to conceal cavalry.</p>
+      <p class="sv-p">A nearby soldier whispered a prayer.</p>
+      <p class="sv-p">One of Lorian's scholars glanced at him. "That won't help."</p>
+      <p class="sv-p">The soldier frowned. "Why?"</p>
+      <p class="sv-p">"She isn't Divine."</p>
+      <p class="sv-p">The living wall shifted toward them.</p>
+      <p class="sv-p">The scholar took two steps backward.</p>
+      <p class="sv-p">Four Nexus Lords had gathered at Evershine. Tomas did not pretend to understand what that meant. He knew only that when Lorian walked his wards, the air tasted of metal, and when Elowen passed near a dying tree, green appeared where there had been brown.</p>
+      <p class="sv-p">Somewhere beyond the living walls waited Valthorian.</p>
+      <p class="sv-p">The people of Umbranis called him Lord of the Veil.</p>
+      <p class="sv-p">Lumorian soldiers had other names.</p>
+      <p class="sv-p">They used them quietly.</p>
+      <p class="sv-p">The opening plan was simple enough. Six barrages. Lorian's wards would open long enough for Lumoria's archers and battle-mages to fire, then close against the answer. Elowen's living barriers would hold Valthorian's vanguard inside the killing ground.</p>
+      <p class="sv-p">After each barrage, one horn.</p>
+      <p class="sv-p">After the sixth, Elowen would withdraw the living walls and Gabriel's eastern companies would advance.</p>
+      <p class="sv-p">Kaelen stood before the relay officers and pointed toward pale stones set into the grass. "After the sixth horn, every eye in the east goes to the High Marshal's standard."</p>
+      <p class="sv-p">He pointed toward Lumoria's center. "If Gabriel signals an internal breach, your companies turn to those markers and stop. That is the containment line."</p>
+      <p class="sv-p">One of the captains raised a hand. "What would get through the center without us seeing it?"</p>
+      <p class="sv-p">Kaelen looked west toward the enemy. "Today?"</p>
+      <p class="sv-p">The captain nodded.</p>
+      <p class="sv-p">"I would prefer not to learn the answer."</p>
+      <p class="sv-p">A few officers laughed.</p>
+      <p class="sv-p">Gabriel did not.</p>
+      <p class="sv-p">Tomas noticed him touch his temple. For an instant, beneath the edge of his hair, Tomas saw a line of black metal.</p>
+      <p class="sv-p">Then Gabriel lowered his hand.</p>
+      <p class="sv-p">Tomas forgot about it almost immediately.</p>
+
+      <figure class="sv-media sv-wide">
+        <img src="/lore/parley.jpg" alt="Seris, Gabriel and Valthorian meet alone between two distant armies on the Evershine Plains" loading="lazy" />
+        <figcaption class="sv-media-overlay sv-overlay-left">
+          <span class="sv-kicker">The Parley</span>
+          <span class="sv-overlay-copy">Something passed between Valthorian and Gabriel that Tomas could not hear.</span>
+        </figcaption>
+      </figure>
+
+      <p class="sv-p">The parley began after sunrise.</p>
+      <p class="sv-p">Seris and Gabriel rode forward beneath a white banner. Tomas carried the command standard as far as the agreed line, then remained behind with Kaelen and the escort.</p>
+      <p class="sv-p">Valthorian approached from the west.</p>
+      <p class="sv-p">Tomas had expected a monster.</p>
+      <p class="sv-p">The man crossing the open ground unsettled him more because there was so little monstrous about him. Valthorian wore dark armor without ornament. His wings were black but not twisted; they folded behind him with the same natural ease as Seris's.</p>
+      <p class="sv-p">His face might once have been beautiful.</p>
+      <p class="sv-p">Perhaps it still was.</p>
+      <p class="sv-p">Seris stopped several paces away from him. "Withdraw beyond the mountains. Do that, and no Lumorian soldier will pursue you today."</p>
+      <p class="sv-p">Valthorian looked past her toward Aureth's Watch. "And tomorrow?"</p>
+      <p class="sv-p">"Tomorrow depends upon what you choose today."</p>
+      <p class="sv-p">A faint smile touched Valthorian's mouth. "There. That is the difference between us."</p>
+      <p class="sv-p">Seris tightened her grip on Radiance. "There are many."</p>
+      <p class="sv-p">"You call obedience virtue when the command comes from someone you approve of."</p>
+      <p class="sv-p">"And you call slavery agreement once you've put it in writing."</p>
+      <p class="sv-p">The smile disappeared.</p>
+      <p class="sv-p">"Careful, Seris."</p>
+      <p class="sv-p">"You came beneath a banner of truce." Seris took a step closer. "Speak."</p>
+      <p class="sv-p">For several moments Tomas could hear only fragments carried by the wind.</p>
+      <p class="sv-p">Surrender.</p>
+      <p class="sv-p">The Watch.</p>
+      <p class="sv-p">The wounded.</p>
+      <p class="sv-p">A withdrawal.</p>
+      <p class="sv-p">Gabriel said almost nothing.</p>
+      <p class="sv-p">That bothered Tomas. Everyone knew Gabriel had spent half his life negotiating across tables from Umbranis commanders. He had arranged prisoner exchanges, temporary armistices, evacuations.</p>
+      <p class="sv-p">Now he stood beside Seris with one hand closed tightly at his side.</p>
+      <p class="sv-p">Valthorian turned toward him.</p>
+      <p class="sv-p">The battlefield became strangely still.</p>
+      <p class="sv-p">He said something.</p>
+      <p class="sv-p">Tomas could not hear the words.</p>
+      <p class="sv-p">Gabriel could.</p>
+      <p class="sv-p">His hand went to his brow.</p>
+      <p class="sv-p">Beside Tomas, Kaelen shifted half a step forward. His hand settled on the pommel of his sword.</p>
+      <p class="sv-p">Gabriel's fingers caught the edge of something beneath his hair.</p>
+      <p class="sv-p">For one instant, Tomas thought the High Marshal might draw his weapon.</p>
+      <p class="sv-p">Instead Gabriel lowered his hand.</p>
+      <p class="sv-p">The parley ended shortly afterward.</p>
+      <p class="sv-p">Gabriel and Seris rode back without speaking. Tomas stepped forward with the standard.</p>
+      <p class="sv-p">"Marshal?"</p>
+      <p class="sv-p">Gabriel looked at him as though he had forgotten Tomas was there.</p>
+      <p class="sv-p">Then his eyes focused.</p>
+      <p class="sv-p">"Prepare the east."</p>
+      <p class="sv-p">His voice was calm.</p>
+      <p class="sv-p">At the time, Tomas found that reassuring.</p>
+      <p class="sv-p">The Shield was ready.</p>
+      <p class="sv-p">So Tomas was too.</p>
+
+      <div class="sv-ornament"><span class="sv-diamond"></span></div>
+
+      <p class="sv-p">The first barrage began with a hundred bowstrings.</p>
+      <p class="sv-p">Arrows climbed over the Lumorian lines in a dark curve, followed by white fire from the battle-mages. Beneath Tomas's boots, Lorian's lattice ignited.</p>
+      <p class="sv-p">For half a heartbeat the western field became brighter than morning.</p>
+      <p class="sv-p">Then the barrage fell behind Elowen's living walls.</p>
+      <p class="sv-p">The answer came almost immediately. Black arrows and burning fragments filled the sky.</p>
+      <p class="sv-p">Tomas flinched.</p>
+      <p class="sv-p">Lorian did not.</p>
+      <p class="sv-p">The Arcane Lord stood behind the center with one hand raised, his fingers moving through a pattern Tomas could not follow. Blue planes appeared above the Lumorian army. The enemy fire struck them and scattered.</p>
+      <p class="sv-p">The first horn sounded.</p>
+      <p class="sv-p">Men cheered.</p>
+      <p class="sv-p">Gabriel turned in the saddle. "Save your voices."</p>
+      <p class="sv-p">The cheering stopped.</p>
+      <p class="sv-p">The second barrage went out.</p>
+      <p class="sv-p">This time Umbranis answered with something like liquid shadow. It spread across Lorian's wards, and two crystal stakes shattered.</p>
+      <p class="sv-p">The third barrage began before replacements were seated.</p>
+      <p class="sv-p">By the fourth, Tomas could no longer see Aureth's Watch behind him. Smoke covered the field in dirty sheets, and wounded men were already moving east.</p>
+      <p class="sv-p">A rider forced his way toward Gabriel. "Marshal, Third Dawnsong is taking pressure on the ridge."</p>
+      <p class="sv-p">Gabriel did not look toward it. "They can hold."</p>
+      <p class="sv-p">"They're asking for reinforcement."</p>
+      <p class="sv-p">"They'll have it after the fifth."</p>
+      <p class="sv-p">The rider hesitated. "Sir-"</p>
+      <p class="sv-p">Gabriel finally looked at him. "If I move the reserves now, Valthorian enters the ground they leave. Tell Captain Arven he has twelve minutes."</p>
+      <p class="sv-p">The rider left.</p>
+      <p class="sv-p">Tomas stared toward the ridge.</p>
+      <p class="sv-p">He could see nothing.</p>
+      <p class="sv-p">Eleven minutes later, Gabriel sent the reinforcement.</p>
+      <p class="sv-p">The ridge held.</p>
+      <p class="sv-p">Tomas felt something like awe settle over his fear. His father had always spoken of Gabriel as though the man saw battles before everyone else did.</p>
+      <p class="sv-p">For the first time, Tomas understood what he meant.</p>
+
+      <figure class="sv-media sv-wide">
+        <img src="/lore/volley.jpg" alt="A colossal magical and arrow volley arcs over Lorian's Arcane dome toward the distant Corruption army" loading="lazy" />
+        <figcaption class="sv-media-overlay sv-overlay-left">
+          <span class="sv-kicker">The Fifth Volley</span>
+          <span class="sv-overlay-copy">The wards still burned. The living walls were opening. They were holding.</span>
+        </figcaption>
+      </figure>
+
+      <p class="sv-p">The fifth barrage rose.</p>
+      <p class="sv-p">Across Lumoria's center, Seris entered the fighting. Tomas saw her only in flashes between smoke and bodies - white wings, Radiance burning in her hand, soldiers closing around her.</p>
+      <p class="sv-p">Wherever she appeared, broken lines seemed to remember what they were supposed to be.</p>
+      <p class="sv-p">An Umbranis charge struck the center.</p>
+      <p class="sv-p">It stopped.</p>
+      <p class="sv-p">The soldiers around Tomas began cheering again.</p>
+      <p class="sv-p">This time Gabriel let them.</p>
+      <p class="sv-p">The fifth horn sounded.</p>
+      <p class="sv-p">Elowen's palisades were beginning to bend away from the battlefield. Great roots pulled themselves through the ground, leaving dark trenches in their wake.</p>
+      <p class="sv-p">An Arcane runner arrived, panting. "One more."</p>
+      <p class="sv-p">Gabriel nodded.</p>
+      <p class="sv-p">The runner looked relieved. "One more," he repeated, and ran back toward Lorian.</p>
+      <p class="sv-p">Tomas adjusted his grip on the standard.</p>
+      <p class="sv-p">This was the moment they had rehearsed. After the sixth barrage, the east would advance.</p>
+      <p class="sv-p">Somewhere beneath his fear was exhilaration.</p>
+      <p class="sv-p">They were holding.</p>
+      <p class="sv-p">Aureth's Watch had never fallen. Seris held the center. Lorian's wards still burned. Elowen's walls were opening.</p>
+      <p class="sv-p">Gabriel commanded the east.</p>
+      <p class="sv-p">Tomas thought suddenly of his father at Solenne, searching the smoke for a silver standard.</p>
+      <p class="sv-p">He wished Marek could see him now.</p>
+      <p class="sv-p">The sixth barrage rose. For a heartbeat, thousands of arrows and streaks of magic seemed to hang above Evershine.</p>
+      <p class="sv-p">Then they descended.</p>
+      <p class="sv-p">The sixth horn sounded.</p>
+      <p class="sv-p">Gabriel held out his hand.</p>
+      <p class="sv-p">Tomas stared at it, and something rose in his chest so quickly it almost hurt.</p>
+      <p class="sv-p">Solenne.</p>
+      <p class="sv-p">Every child in Lumoria knew the image. The fallen bearer. Gabriel taking the standard. An army finding the Shield through the smoke.</p>
+      <p class="sv-p">Tomas surrendered it.</p>
+      <p class="sv-p">Gabriel wrapped one hand around the staff.</p>
+      <p class="sv-p">The eastern companies saw him.</p>
+      <p class="sv-p">A cheer rolled across the field.</p>
+      <p class="sv-p">Not for Seris.</p>
+      <p class="sv-p">Not for Lumoria.</p>
+      <p class="sv-p">For Gabriel.</p>
+      <p class="sv-p">The sound seemed powerful enough to tear open the smoke. Gabriel raised the silver standard high, and Tomas grinned.</p>
+      <p class="sv-p">Then the High Marshal turned toward Lumoria's center.</p>
+
+      <figure class="sv-media sv-wide">
+        <img src="/lore/standard.jpg" alt="Gabriel lowers the sacred Lumorian command standard while Tomas watches in shock" loading="lazy" />
+        <figcaption class="sv-media-overlay sv-overlay-left">
+          <span class="sv-kicker">The Sixth Horn</span>
+          <span class="sv-overlay-copy">And lowered it.</span>
+        </figcaption>
+      </figure>
+
+      <p class="sv-p">Tomas's smile disappeared.</p>
+      <p class="sv-p">Relay horns answered once, twice, then again farther down the eastern line.</p>
+      <div class="sv-pull"><strong>Breach within.</strong></div>
+      <p class="sv-p">The eastern companies turned.</p>
+      <p class="sv-p">For several seconds, training was stronger than confusion. Tomas searched the center for whatever Gabriel had seen.</p>
+      <p class="sv-p">Only Lumorian banners moved there.</p>
+      <p class="sv-p">The first companies reached the pale containment stones and began to slow.</p>
+      <p class="sv-p">"Marshal?" Tomas looked from the formations to Gabriel. "They've reached the line."</p>
+      <p class="sv-p">"I see them."</p>
+      <p class="sv-p">"Should I signal halt?"</p>
+      <p class="sv-p">Gabriel kept the standard lowered. "No."</p>
+      <p class="sv-p">A company crossed the markers.</p>
+      <p class="sv-p">Then another.</p>
+      <p class="sv-p">"Marshal, they're too far."</p>
+      <p class="sv-p">Gabriel did not answer.</p>
+      <p class="sv-p">A lieutenant came running from the center and stepped into the path of one advancing company.</p>
+      <p class="sv-p">"Hold! There is no breach!"</p>
+      <p class="sv-p">The captain at the head of the formation rode toward her. Tomas could not hear what they said. The lieutenant pointed back toward the center.</p>
+      <p class="sv-p">The captain drew his sword.</p>
+      <p class="sv-p">For one absurd instant, Tomas thought an enemy spell must have taken him.</p>
+      <p class="sv-p">Then the blade entered beneath the lieutenant's arm.</p>
+      <p class="sv-p">She fell.</p>
+      <p class="sv-p">A soldier beside her screamed and struck at the captain. Another attacked him. Others simply stood staring as the formation collapsed around them.</p>
+      <p class="sv-p">"What is happening?" Tomas whispered.</p>
+      <p class="sv-p">The earth began to shake.</p>
+      <p class="sv-p">At first he thought it was another spell.</p>
+      <p class="sv-p">Then dark shapes appeared through the western smoke.</p>
+      <p class="sv-p">Cavalry.</p>
+      <p class="sv-p">Rows of them.</p>
+      <p class="sv-p">They poured into the ground the eastern companies had abandoned.</p>
+      <p class="sv-p">Tomas pointed. "Marshal. Valthorian is through."</p>
+      <p class="sv-p">Gabriel watched the riders enter.</p>
+      <p class="sv-p">"I know."</p>
+      <p class="sv-p">Tomas turned toward him.</p>
+      <p class="sv-p">The words made no sense.</p>
+      <p class="sv-p">Another relay horn sounded farther south. A company crossed its containment line. Some soldiers followed their captain. Others stopped. Two officers drew weapons against one another.</p>
+      <p class="sv-p">From Lumoria's center came cries unlike any Tomas had heard during the battle - men shouting names, soldiers begging people they knew to lower their weapons, questions screamed over and over.</p>
+      <p class="sv-p"><em>Why?</em></p>
+      <p class="sv-p"><em>What are you doing?</em></p>
+      <p class="sv-p"><em>Who gave that order?</em></p>
+      <p class="sv-p">Seris turned toward the east.</p>
+      <p class="sv-p">Even at that distance, Tomas could see her searching the line.</p>
+      <p class="sv-p">For an enemy.</p>
+      <p class="sv-p">For a breach.</p>
+      <p class="sv-p">For something that would make any of this make sense.</p>
+      <p class="sv-p">Kaelen came through the smoke at a gallop. His horse nearly collided with soldiers trying to reverse their formation. He forced his way through and reached Gabriel with blood across one side of his armor.</p>
+      <p class="sv-p">"Raise the standard!"</p>
+      <p class="sv-p">Gabriel did not move.</p>
+      <p class="sv-p">Kaelen dismounted. "The center is clean."</p>
+      <p class="sv-p">Gabriel looked at him.</p>
+      <p class="sv-p">"I know."</p>
+      <p class="sv-p">Silence seemed to open around the words.</p>
+      <p class="sv-p">Kaelen stared. "No."</p>
+      <p class="sv-p">It was not an order. It sounded like a man correcting something impossible.</p>
+      <p class="sv-p">His eyes moved to Gabriel's brow. The black metal Tomas had glimpsed that morning was visible beneath the edge of the High Marshal's helm.</p>
+      <p class="sv-p">Kaelen stepped closer. "What has he done to you?"</p>
+      <p class="sv-p">Gabriel's expression hardened.</p>
+      <p class="sv-p">Kaelen pointed toward the eastern companies. "Look at them. They don't know."</p>
+      <p class="sv-p">Gabriel glanced toward the fighting.</p>
+      <p class="sv-p">"Raise it," Kaelen said.</p>
+      <p class="sv-p">Gabriel held the standard toward Tomas. "Take it."</p>
+      <p class="sv-p">Tomas obeyed automatically.</p>
+      <p class="sv-p">Gabriel kept one hand on the staff for another moment.</p>
+      <p class="sv-p">"Keep it lowered."</p>
+      <p class="sv-p">Tomas froze.</p>
+      <p class="sv-p">Kaelen looked at Tomas, then back at the High Marshal.</p>
+      <p class="sv-p">"Gabriel."</p>
+      <p class="sv-p">Gabriel drew his sword.</p>
+      <p class="sv-p">"If there is anything of the man from Solenne left in you," Kaelen said, "raise that standard."</p>
+      <p class="sv-p">"No."</p>
+      <p class="sv-p">Kaelen's face changed.</p>
+      <p class="sv-p">Tomas had known both men for his entire military life. Kaelen spoke about Gabriel with the irritated affection of a father who refused to admit how proud he was.</p>
+      <p class="sv-p">Now he looked frightened.</p>
+      <p class="sv-p">He reached for the standard.</p>
+      <p class="sv-p">Gabriel intercepted him.</p>
+      <p class="sv-p">Their swords struck hard enough that Tomas stumbled backward.</p>
+      <p class="sv-p">Kaelen attacked again. Gabriel caught the blow and turned it aside.</p>
+      <p class="sv-p">There was nothing graceful about the fight, nothing like the duels painted on temple walls. These were men who had spent their lives learning how quickly another man could die.</p>
+      <p class="sv-p">Kaelen knew Gabriel.</p>
+      <p class="sv-p">That kept him alive.</p>
+      <p class="sv-p">He anticipated the first feint, stepped outside the second, and struck at Gabriel's injured sword hand.</p>
+      <p class="sv-p">Gabriel gave ground.</p>
+      <p class="sv-p">"You taught me that," he said.</p>
+      <p class="sv-p">Kaelen advanced. "I taught you better."</p>
+      <p class="sv-p">Steel rang again.</p>
+      <p class="sv-p">For a moment Tomas believed Kaelen might win.</p>
+      <p class="sv-p">Gabriel yielded one step.</p>
+      <p class="sv-p">Then another.</p>
+      <p class="sv-p">Kaelen followed.</p>
+      <p class="sv-p">Gabriel turned inside his guard.</p>
+      <p class="sv-p">His sword entered beneath Kaelen's breastplate.</p>
+      <p class="sv-p">The point emerged behind him.</p>
+      <p class="sv-p">Kaelen stopped.</p>
+      <p class="sv-p">The two men remained close for a moment. If either spoke, Tomas could not hear it.</p>
+      <p class="sv-p">Gabriel pulled the blade free.</p>
+      <p class="sv-p">Kaelen fell.</p>
+
+      <figure class="sv-media sv-contained">
+        <img src="/lore/kaelen.jpg" alt="Gabriel supports the mortally wounded Kaelen as the battle collapses behind them" loading="lazy" />
+        <figcaption class="sv-media-overlay sv-overlay-left">
+          <span class="sv-kicker">The Betrayal</span>
+          <span class="sv-overlay-copy">The center is clean.<br />I know.</span>
+        </figcaption>
+      </figure>
+
+      <p class="sv-p">Across the field came a sound Tomas would hear for the rest of his life.</p>
+      <p class="sv-p">Seris screamed his name.</p>
+
+      <figure class="sv-media sv-wide">
+        <img src="/lore/resurrection.jpg" alt="Seris unleashes golden resurrection magic across fallen Lumorian and Corruption soldiers as Kaelen rises" loading="lazy" />
+        <figcaption class="sv-media-overlay sv-overlay-left">
+          <span class="sv-kicker">The Radiant</span>
+          <span class="sv-overlay-copy">Light burst from Lumoria's center.</span>
+        </figcaption>
+      </figure>
+
+      <p class="sv-p">Not fire. Not lightning.</p>
+      <p class="sv-p">Something warmer, and somehow more terrible.</p>
+      <p class="sv-p">It raced through the fallen. For an instant, Tomas saw bodies outlined beneath the smoke.</p>
+      <p class="sv-p">One moved.</p>
+      <p class="sv-p">Then another.</p>
+      <p class="sv-p">A soldier who had been lying facedown pushed himself onto his hands.</p>
+      <p class="sv-p">Tomas stared.</p>
+      <p class="sv-p">All around Seris, the dead were drawing breath.</p>
+      <p class="sv-p">At his feet, Kaelen's fingers moved.</p>
+      <p class="sv-p">Gabriel stepped backward.</p>
+      <p class="sv-p">Gold light appeared beneath the wound in Kaelen's armor. His chest rose.</p>
+      <p class="sv-p">The old captain drew breath.</p>
+      <p class="sv-p">Tomas nearly dropped the standard.</p>
+      <p class="sv-p">Kaelen found his sword and pushed himself upright, slowly at first, then with growing strength.</p>
+      <p class="sv-p">Gabriel stared at him.</p>
+      <p class="sv-p">For the first time that day, Tomas saw something on the High Marshal's face he had not seen during any charge, any spell, any breaking line.</p>
+      <p class="sv-p">Fear.</p>
+      <p class="sv-p">Kaelen lifted his weapon.</p>
+      <div class="sv-pull"><strong>"Again."</strong></div>
+      <p class="sv-p">Then soldiers crashed between them, and the battlefield swallowed Gabriel whole.</p>
+
+      <div class="sv-ornament"><span class="sv-diamond"></span></div>
+
+      <p class="sv-p">Tomas could never remember when he began running.</p>
+      <p class="sv-p">At some point he lost sight of Kaelen. At some point the standard tore. He remembered a riderless horse knocking him into the mud and crawling beneath arrows while silver cloth dragged behind him.</p>
+      <p class="sv-p">Everywhere, the Solenne Turn had created a different nightmare.</p>
+      <p class="sv-p">Some eastern companies had stopped at the containment line and were now fighting Valthorian's cavalry. Others had followed captains who knew more than their soldiers. Still others had broken apart entirely when contradictory horns sounded.</p>
+      <p class="sv-p">There was no eastern wing anymore.</p>
+      <p class="sv-p">No center.</p>
+      <p class="sv-p">No battle Tomas could understand.</p>
+      <p class="sv-p">Only frightened people trying to decide which banners still meant safety.</p>
+      <p class="sv-p">He found a soldier pinned beneath a dead horse. The man wore the silver shoulder markings of Gabriel's command.</p>
+      <p class="sv-p">"Help me."</p>
+      <p class="sv-p">Tomas dropped beside him and pulled at the saddle until the man could drag one leg free.</p>
+      <p class="sv-p">He screamed.</p>
+      <p class="sv-p">"What are the orders?" the soldier asked.</p>
+      <p class="sv-p">Tomas stopped. "What?"</p>
+      <p class="sv-p">"The standard." The man pointed at the silver cloth wrapped around Tomas's arm. "What's Gabriel's order?"</p>
+      <p class="sv-p">His father's voice returned from somewhere impossibly far away.</p>
+      <p class="sv-p"><em>You could see him through everything.</em></p>
+      <p class="sv-p"><em>That's why we lived.</em></p>
+      <p class="sv-p"><em>When the Shield tells you where to stand, you stand there.</em></p>
+      <p class="sv-p">The wounded soldier gripped Tomas's sleeve. "Sergeant."</p>
+      <p class="sv-p">Tomas looked back toward the smoke. Gabriel was somewhere inside it.</p>
+      <p class="sv-p">So was Kaelen.</p>
+      <p class="sv-p">Perhaps.</p>
+      <p class="sv-p">"There aren't any orders."</p>
+      <p class="sv-p">The wounded man stared at him. "Then what do we do?"</p>
+      <p class="sv-p">Tomas put the man's arm over his shoulders.</p>
+      <p class="sv-p">"We get up."</p>
+      <p class="sv-p">They made it perhaps twenty paces before three soldiers blocked the road.</p>
+      <p class="sv-p">Dawnsong.</p>
+      <p class="sv-p">Seris's central guard.</p>
+      <p class="sv-p">One raised his sword when he saw the eastern markings on the wounded man.</p>
+      <p class="sv-p">"Leave him."</p>
+      <p class="sv-p">Tomas tightened his grip around the soldier's waist. "He can't walk."</p>
+      <p class="sv-p">The Dawnsong soldier kept his sword raised. "He's one of Gabriel's."</p>
+      <p class="sv-p">"He didn't know."</p>
+      <p class="sv-p">"You don't know that."</p>
+      <p class="sv-p">The wounded man tried to pull away from Tomas. "I followed the signal."</p>
+      <p class="sv-p">The guard stepped closer. "So did the men who killed my brother."</p>
+      <p class="sv-p">"Stop."</p>
+      <p class="sv-p">Seris emerged through the smoke behind them.</p>
+      <p class="sv-p">Tomas almost did not recognize her. One wing hung lower than the other. Blood covered the side of her armor, and a crack ran along the edge of Radiance.</p>
+      <p class="sv-p">The Dawnsong soldiers moved instinctively around her.</p>
+      <p class="sv-p">"My Radiant," one said, "we need to keep moving."</p>
+      <p class="sv-p">Seris looked down at the wounded eastern soldier.</p>
+      <p class="sv-p">"He cannot."</p>
+      <p class="sv-p">The guard pointed his sword toward the man. "He may be a traitor."</p>
+      <p class="sv-p">Seris knelt beside the wounded man.</p>
+      <p class="sv-p">"Then he can answer for it alive."</p>
+      <p class="sv-p">The guard lowered his blade.</p>
+      <p class="sv-p">The wounded soldier struggled to sit straighter. "I didn't know."</p>
+      <p class="sv-p">Seris placed her hand over his crushed leg.</p>
+      <p class="sv-p">"I believe you."</p>
+      <p class="sv-p">Light gathered around her fingers.</p>
+      <p class="sv-p">The soldier gasped. "You don't have to-"</p>
+      <p class="sv-p">Seris looked at the wound.</p>
+      <p class="sv-p">"Yes," she said. "I do."</p>
+      <p class="sv-p">The light spread, and Tomas watched the man's breathing slow. Behind them, Lumoria was losing Evershine. Seris knew it. Every soldier on that road knew it.</p>
+      <p class="sv-p">Still she remained in the mud until the bleeding stopped.</p>
+      <p class="sv-p">Then she rose.</p>
+      <p class="sv-p">"To Solenne," Seris told the guards. "Take everyone who can move."</p>
+      <p class="sv-p">One of them glanced at the wounded. "And those who cannot?"</p>
+      <p class="sv-p">Seris looked toward the long line of men and women limping from the battlefield.</p>
+      <p class="sv-p">"We carry them."</p>
+
+      <figure class="sv-media sv-contained">
+        <img src="/lore/seris-wounded.jpg" alt="Seris, wounded and exhausted, tends a fallen Lumorian soldier beneath the ripped standard" loading="lazy" />
+        <figcaption class="sv-media-overlay sv-overlay-right">
+          <span class="sv-kicker">What Remained</span>
+          <span class="sv-overlay-copy">Then he can answer for it alive.</span>
+        </figcaption>
+      </figure>
+
+      <p class="sv-p">A horn sounded somewhere to the west.</p>
+      <p class="sv-p">Not Lumorian.</p>
+      <p class="sv-p">Seris turned once toward the smoke where Gabriel had disappeared.</p>
+      <p class="sv-p">She did not curse him.</p>
+      <p class="sv-p">She did not ask why.</p>
+      <p class="sv-p">She simply turned east and began gathering what remained of her army.</p>
+      <p class="sv-p">Tomas followed.</p>
+      <p class="sv-p">He carried the silver standard for another mile before realizing no one was looking to it for instructions anymore.</p>
+
+      <figure class="sv-media sv-wide">
+        <img src="/lore/lookback.jpg" alt="Tomas looks back from the shattered battlefield and sees Gabriel standing far away beside Valthorian" loading="lazy" />
+        <figcaption class="sv-media-overlay sv-overlay-left">
+          <span class="sv-kicker">The Last Look</span>
+          <span class="sv-overlay-copy">No chains held Gabriel.</span>
+        </figcaption>
+      </figure>
+
+      <p class="sv-p">At the crest of a low hill, he stopped.</p>
+      <p class="sv-p">Someone called for him to keep moving.</p>
+      <p class="sv-p">Tomas turned anyway.</p>
+      <p class="sv-p">Smoke covered most of Evershine. Aureth's Watch was barely visible through it, its banners still flying above the walls.</p>
+      <p class="sv-p">Farther west, two figures stood on a rise overlooking the broken field.</p>
+      <p class="sv-p">Tomas recognized Gabriel first.</p>
+      <p class="sv-p">Even at that distance he knew the shape of the armor, the way the High Marshal stood with his weight slightly forward.</p>
+      <p class="sv-p">Valthorian stood beside him.</p>
+      <p class="sv-p">No chains held Gabriel.</p>
+      <p class="sv-p">No guards surrounded him.</p>
+      <p class="sv-p">His sword remained in his hand.</p>
+      <p class="sv-p">Valthorian said something Tomas could not hear.</p>
+      <p class="sv-p">Gabriel looked toward the retreating Lumorian army.</p>
+      <p class="sv-p">Toward Seris.</p>
+      <p class="sv-p">Toward Tomas.</p>
+      <p class="sv-p">Perhaps the distance was too great for him to see any of them.</p>
+      <p class="sv-p">Valthorian extended one hand.</p>
+      <p class="sv-p">Gabriel looked down at it.</p>
+      <p class="sv-p">He did not take it.</p>
+      <p class="sv-p">But he did not raise his sword either.</p>
+      <p class="sv-p">For several seconds, neither man moved.</p>
+      <p class="sv-p">Then smoke passed across the rise.</p>
+      <p class="sv-p">When it cleared, they were gone.</p>
+
+      <section class="sv-finale">
+        <img class="sv-finale-art" src="/lore/finale.jpg" alt="Tomas carries the torn standard along the road to Solenne as survivors retreat from Evershine" loading="lazy" />
+        <div class="sv-finale-copy">
+          <p class="sv-kicker">Three days later</p>
+          <p class="sv-p">Aureth's Watch fell.</p>
+          <p class="sv-p">Tomas learned of it on the road to Solenne. By then the command standard had been torn nearly in half, and a strip of its silver cloth was wrapped tightly around his forearm where a blade had opened the skin.</p>
+          <p class="sv-p">No one had ordered him to save it. He had simply been unable to leave it behind.</p>
+          <p class="sv-p">The survivors talked as they walked because silence was worse. Some said Valthorian had corrupted Gabriel. Others said the High Marshal had been promised a kingdom. A Dawnsong knight insisted Gabriel must have been compelled by magic.</p>
+          <p class="sv-p">An eastern soldier nearly struck him.</p>
+          <p class="sv-p">"You didn't know him."</p>
+          <p class="sv-p">The knight faced him. "I knew what I saw."</p>
+          <p class="sv-p">"So did I."</p>
+          <p class="sv-p">"Then explain it."</p>
+          <p class="sv-p">The eastern soldier opened his mouth. Nothing came.</p>
+          <p class="sv-p">Someone walking beside Tomas finally asked what everyone had been asking since Evershine.</p>
+          <p class="sv-p">"Why did he do it?"</p>
+          <p class="sv-p">Tomas thought of Gabriel standing across the field with Valthorian. Not bound. Not dragged away. Not asking anyone to save him.</p>
+          <p class="sv-p">He looked down at the strip of silver cloth wrapped around his arm.</p>
+          <p class="sv-final-line">All his life, Tomas had wanted to know what kind of man Gabriel was.<br /><br />Now he was afraid of the answer.</p>
+        </div>
+      </section>
+
+      <div class="sv-credit">Leylines of Power — The Sixth Volley</div>
+    </main>
+  </article>
 </BaseLayout>
 
 <style>
-  /* Same ambient background treatment as the Rules page — see
-     src/pages/rules.astro / index.astro for the fuller comments. */
-  .content-bg {
-    position: relative;
-    min-height: 100%;
+  .sixth-volley {
+    background: var(--sidebar-bg);
   }
-  .content-bg::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+
+  /* ---- Hero ---- */
+  .sv-hero {
+    position: relative;
+    overflow: hidden;
+  }
+  .sv-hero-art {
+    display: block;
     width: 100%;
-    aspect-ratio: 1659 / 948;
-    z-index: 0;
-    pointer-events: none;
-    opacity: 0.35;
-    background-image: url('/ornaments/setup-bg.png');
-    background-size: 100% 100%;
-    background-position: center top;
-    background-repeat: no-repeat;
-    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 68%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 0%, black 68%, transparent 100%);
+    aspect-ratio: 16 / 9;
+    max-height: 82vh;
+    object-fit: cover;
+    object-position: center 30%;
   }
-  .lore-wrap {
-    position: relative;
-    z-index: 1;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 56px 24px 72px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+  .sv-hero-scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to bottom, rgba(20, 21, 25, 0.35), transparent 30%, transparent 50%, rgba(26, 27, 31, 0.96) 96%),
+      radial-gradient(ellipse at 50% 100%, rgba(0, 0, 0, 0.45), transparent 60%);
+  }
+  .sv-hero-copy {
+    position: absolute;
+    left: 50%;
+    bottom: clamp(16px, 6vh, 64px);
+    transform: translateX(-50%);
+    width: min(92%, 820px);
     text-align: center;
   }
-  h1 {
-    margin: 6px 0 18px;
-    font-size: clamp(24px, 3.2vw, 34px);
+  .sv-kicker {
+    margin: 0;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
     color: var(--gold-bright);
   }
-  .caption {
-    margin: 14px 0 0;
-    font-size: 13px;
+  .sv-rule {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 14px auto;
+    width: min(70%, 360px);
+  }
+  .sv-rule span {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(201, 169, 78, 0.7));
+  }
+  .sv-rule span:last-child {
+    background: linear-gradient(to left, transparent, rgba(201, 169, 78, 0.7));
+  }
+  .sv-rule i {
+    width: 7px;
+    height: 7px;
+    transform: rotate(45deg);
+    background: var(--gold-bright);
+  }
+  .sv-title {
+    margin: 6px 0 4px;
+    font-family: 'Cinzel Decorative', 'Cinzel', serif;
+    font-weight: 700;
+    font-size: clamp(30px, 6vw, 58px);
+    line-height: 1.08;
+    letter-spacing: 0.06em;
+    color: var(--fg);
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.8);
+  }
+  .sv-title strong {
+    color: var(--gold-bright);
+    font-weight: 900;
+  }
+  .sv-subtitle {
+    margin: 4px 0 0;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: clamp(15px, 2vw, 19px);
+    color: rgba(236, 234, 234, 0.85);
+  }
+  .sv-epigraph {
+    margin: 22px auto 0;
+    max-width: 560px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(236, 234, 234, 0.72);
+  }
+  .sv-epigraph cite {
+    display: block;
+    margin-top: 8px;
+    font-style: normal;
+    font-family: 'Cinzel', serif;
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ---- Story column ---- */
+  .sv-story {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: clamp(36px, 6vh, 64px) 22px 0;
+  }
+  .sv-p {
+    margin: 0 0 1.05em;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 17.5px;
+    line-height: 1.75;
+    color: rgba(236, 234, 234, 0.92);
+  }
+  .sv-lede {
+    font-size: 20px;
+    line-height: 1.7;
+  }
+  .sv-dropcap::first-letter {
+    float: left;
+    font-family: 'Cinzel Decorative', 'Cinzel', serif;
+    font-size: 3.4em;
+    line-height: 0.85;
+    padding: 0.06em 0.12em 0 0;
+    color: var(--gold-bright);
+  }
+  .sv-hook {
+    font-style: italic;
+    font-size: 19px;
+    color: var(--fg);
+  }
+  .sv-pull {
+    margin: 38px auto;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: clamp(19px, 2.6vw, 24px);
     letter-spacing: 0.08em;
+    color: var(--gold-bright);
+  }
+  .sv-pull strong {
+    font-weight: 700;
+  }
+  .sv-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 44px auto;
+  }
+  .sv-ornament::before,
+  .sv-ornament::after {
+    content: '';
+    width: min(26%, 150px);
+    height: 1px;
+    background: rgba(201, 169, 78, 0.4);
+  }
+  .sv-diamond {
+    width: 8px;
+    height: 8px;
+    margin: 0 12px;
+    transform: rotate(45deg);
+    background: var(--gold);
+  }
+
+  /* ---- Illustrations ---- */
+  .sv-media {
+    position: relative;
+    margin: 40px auto;
+    border: 1px solid rgba(201, 169, 78, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.5);
+  }
+  .sv-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .sv-contained {
+    max-width: 700px;
+  }
+  /* Wide plates break out of the text column on large screens. */
+  .sv-wide {
+    width: min(92vw, 1100px);
+    max-width: none;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+  .sv-media-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 46px 22px 16px;
+    margin: 0;
+    background: linear-gradient(to top, rgba(10, 10, 12, 0.82), rgba(10, 10, 12, 0.4) 60%, transparent);
+  }
+  .sv-overlay-left {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .sv-overlay-right {
+    align-items: flex-end;
+    text-align: right;
+  }
+  .sv-media-overlay .sv-kicker {
+    font-size: 11px;
+  }
+  .sv-overlay-copy {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.5;
+    color: rgba(236, 234, 234, 0.92);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
+  }
+
+  /* ---- Finale ---- */
+  .sv-finale {
+    position: relative;
+    width: min(92vw, 1100px);
+    margin: 56px auto 0;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid rgba(201, 169, 78, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.5);
+  }
+  .sv-finale-art {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .sv-finale-copy {
+    position: relative;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 34px 24px 44px;
+  }
+  .sv-finale-copy .sv-kicker {
+    text-align: center;
+    margin-bottom: 18px;
+  }
+  .sv-final-line {
+    margin: 26px 0 0;
+    text-align: center;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 19px;
+    line-height: 1.7;
+    color: var(--fg);
+  }
+
+  .sv-credit {
+    margin: 0 auto;
+    padding: 40px 22px 56px;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
     color: var(--muted-fg);
   }
 
-  /* The motion study itself — ported from the designer's standalone HTML
-     (index_embedded.html); geometry and timings kept verbatim, only the
-     embedded data-URI art swapped for /lore/aureths-watch.jpg. */
-  .frame {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1671 / 941;
-    overflow: hidden;
-    background: #111;
-    border: 1px solid rgba(201, 169, 78, 0.35);
-    border-radius: 8px;
-    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
-  }
-  .art {
-    position: absolute;
-    inset: -1.5%;
-    width: 103%;
-    height: 103%;
-    object-fit: cover;
-    transform-origin: 58% 48%;
-    animation: camera 16s ease-in-out infinite alternate;
-    will-change: transform;
-  }
-  .sun {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    mix-blend-mode: screen;
-    background: radial-gradient(circle at 82% 12%, rgba(255, 214, 128, 0.22), rgba(255, 183, 70, 0.08) 14%, transparent 32%);
-    animation: sunPulse 6s ease-in-out infinite alternate;
-  }
-  .arcane {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    mix-blend-mode: screen;
-    background: radial-gradient(circle at 14.5% 53%, rgba(76, 167, 255, 0.22), rgba(63, 122, 255, 0.08) 7%, transparent 17%);
-    filter: blur(1px);
-    animation: arcanePulse 3.8s ease-in-out infinite alternate;
-  }
-  .mist,
-  .mist2 {
-    position: absolute;
-    left: -35%;
-    width: 170%;
-    height: 28%;
-    pointer-events: none;
-    background:
-      radial-gradient(ellipse at 18% 48%, rgba(232, 238, 242, 0.18), transparent 34%),
-      radial-gradient(ellipse at 53% 58%, rgba(226, 232, 238, 0.14), transparent 32%),
-      radial-gradient(ellipse at 82% 42%, rgba(235, 238, 239, 0.12), transparent 28%);
-    filter: blur(18px);
-    opacity: 0.42;
-    animation: mist 22s linear infinite alternate;
-  }
-  .mist {
-    top: 43%;
-  }
-  .mist2 {
-    top: 58%;
-    opacity: 0.22;
-    animation-duration: 29s;
-    animation-direction: alternate-reverse;
-  }
-  .vignette {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    box-shadow:
-      inset 0 0 110px rgba(0, 0, 0, 0.22),
-      inset 0 -80px 120px rgba(0, 0, 0, 0.12);
-  }
-  @keyframes camera {
-    0% {
-      transform: scale(1.018) translate3d(-0.35%, 0.2%, 0);
-    }
-    48% {
-      transform: scale(1.033) translate3d(0.15%, -0.1%, 0);
-    }
-    100% {
-      transform: scale(1.025) translate3d(0.48%, -0.22%, 0);
-    }
-  }
-  @keyframes sunPulse {
-    from {
-      opacity: 0.58;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  @keyframes arcanePulse {
-    from {
-      opacity: 0.45;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  @keyframes mist {
-    from {
-      transform: translateX(-2.5%);
-    }
-    to {
-      transform: translateX(4.5%);
-    }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .art,
-    .sun,
-    .arcane,
-    .mist,
-    .mist2 {
-      animation: none !important;
+  @media (max-width: 760px) {
+    .sv-wide,
+    .sv-finale {
+      width: 100%;
+      margin-left: 0;
+      transform: none;
+      border-radius: 0;
+      border-left: none;
+      border-right: none;
     }
   }
 </style>
