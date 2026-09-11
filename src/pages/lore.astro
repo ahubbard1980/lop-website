@@ -797,15 +797,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
   /* Cinematic scenes — the hero's own treatment carried through the
      story: edge-to-edge art with the caption staged like a title card. */
+  /* Scenes always show the WHOLE painting — never cover-cropped (a wide
+     window would slice heads off the art). Width is full-bleed, but
+     capped at 167vh (= a 16:9 image standing 94% of the viewport tall) so
+     on wide/short windows the scene letterboxes to fit one screen instead
+     of growing taller than it. */
   .sv-scene {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
+    width: min(100vw, 167vh);
+    margin-left: 50%;
     margin-top: 60px;
     margin-bottom: 60px;
-  }
-  .sv-scene img {
-    max-height: 92vh;
-    object-fit: cover;
+    transform: translateX(-50%);
   }
   .sv-media-overlay {
     position: absolute;
@@ -862,16 +864,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
   .sv-finale-scene {
     position: relative;
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
+    width: min(100vw, 167vh);
+    margin-left: 50%;
+    transform: translateX(-50%);
     overflow: hidden;
   }
   .sv-finale-art {
     display: block;
     width: 100%;
     height: auto;
-    max-height: 92vh;
-    object-fit: cover;
   }
   .sv-finale-copy {
     position: relative;
