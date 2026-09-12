@@ -1,35 +1,290 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+// "How to Play" quickstart — content ported from the designer's
+// LOP_How_to_Play_Website PDF (2026-09-12). Structure and wording are
+// theirs; only the presentation is the site's. Edge cases intentionally
+// defer to the Comprehensive Rules, as the copy itself says.
+
+const sections = [
+  { id: 'win', n: 1, title: 'Win the battle' },
+  { id: 'deck', n: 2, title: 'Build your deck' },
+  { id: 'resources', n: 3, title: 'Your two resources' },
+  { id: 'turn', n: 4, title: 'One shared turn, alternating Actions' },
+  { id: 'creatures', n: 5, title: 'Creatures and the battlefield' },
+  { id: 'combat', n: 6, title: 'Combat' },
+  { id: 'protection', n: 7, title: 'Protecting creatures' },
+  { id: 'lord', n: 8, title: 'Your Nexus Lord' },
+  { id: 'stack', n: 9, title: 'Reactions and the stack' },
+  { id: 'affinities', n: 10, title: 'Five Affinities, five styles' },
+  { id: 'example', n: 11, title: 'A simple first-turn example' },
+];
 ---
 
-<BaseLayout title="Rules — Leylines of Power" description="The rules of Leylines of Power — coming soon.">
+<BaseLayout title="How to Play — Leylines of Power" description="The Leylines of Power quickstart — the core game loop in eleven short sections.">
   <div class="content-bg">
-    <section class="placeholder-wrap">
-      <div class="framed-panel">
-        <div class="gold-corners">
-          <span class="gold-corner gold-corner-tl"></span>
-          <span class="gold-corner gold-corner-tr"></span>
-          <span class="gold-corner gold-corner-bl"></span>
-          <span class="gold-corner gold-corner-br"></span>
-        </div>
-        <p class="eyebrow">Rules</p>
-        <h1>The rulebook is being rewritten.</h1>
-        <p>
-          Leylines of Power is still in active playtesting, and the rules text is being revised to match.
-          A full, readable rules page is coming here soon — in the meantime, the simulator enforces nothing,
-          so playtesters are already using the latest draft directly.
+    <div class="rules-wrap">
+      <header class="rules-header">
+        <p class="eyebrow">How to Play</p>
+        <h1>The Quickstart</h1>
+        <p class="rules-sub">Website Quickstart · Awakening</p>
+        <p class="rules-note">
+          This guide teaches the core game loop. It intentionally leaves edge cases and tournament procedures to the
+          Comprehensive Rules. If a card creates a special exception, follow the card and the Comprehensive Rules.
         </p>
-        <a class="cta btn-gold" href="/">Back to Home</a>
+      </header>
+
+      <nav class="rules-toc" aria-label="Sections">
+        {sections.map((s) => (
+          <a href={`#${s.id}`}>{s.n}. {s.title}</a>
+        ))}
+      </nav>
+
+      <section id="win" class="rules-section">
+        <h2><span class="rules-num">1</span>Win the battle</h2>
+        <p>
+          You are your Nexus Lord. Your Lord's Life is your Life, and most games begin at 20 Life. Reduce the enemy to
+          0 Life, or make them draw from an empty deck, to win.
+        </p>
+        <p>
+          Your Nexus Lord begins in play and shapes your deck. It has an Affinity, Intelligence (INT), Leadership
+          (LDR), an Edict, an Ascend condition, and an Ascended side with stronger abilities.
+        </p>
+      </section>
+
+      <section id="deck" class="rules-section">
+        <h2><span class="rules-num">2</span>Build your deck</h2>
+        <ul>
+          <li>Choose 1 Nexus Lord.</li>
+          <li>Build a 50-card deck using your Lord's Affinity, up to one additional Affinity, and Prismatic cards allowed by the rules.</li>
+          <li>Use up to 3 copies of a named card unless an exception says otherwise.</li>
+          <li>Leylines are included in the deck and power your cards and Lord.</li>
+        </ul>
+      </section>
+
+      <section id="resources" class="rules-section">
+        <h2><span class="rules-num">3</span>Your two resources</h2>
+        <h3>Resonance — what you spend now</h3>
+        <p>
+          Leylines Channel for Resonance. Resonance pays for creatures, Chants, Enchantments, Relics, and many
+          abilities. Unspent Resonance disappears at the end of the shared turn.
+        </p>
+        <h3>Focus — power you bank for later</h3>
+        <p>
+          Leylines can also Concentrate to gain Focus. Focus stays in your pool between turns and pays for Edicts,
+          Ultimates, Champion abilities, and other effects.
+        </p>
+        <aside class="rules-callout">
+          <p class="rules-callout-title">The key choice</p>
+          <p>
+            If you Concentrate during a shared turn, you cannot activate any Edict or Ultimate that turn. If you
+            activate an Edict or Ultimate first, you cannot Concentrate later that turn. Card effects that simply give
+            you Focus are not Concentrate unless they say so.
+          </p>
+        </aside>
+        <p>
+          Channel and Concentrate are separate Leyline functions. A Leyline normally exhausts to do one of them. If an
+          effect readies that Leyline again, it can be used again.
+        </p>
+      </section>
+
+      <section id="turn" class="rules-section">
+        <h2><span class="rules-num">4</span>One shared turn, alternating Actions</h2>
+        <p>
+          Leylines of Power does not give one player a long solo turn. Both players act inside the same shared turn.
+          One player has Initiative and takes the first Action opportunity; then players alternate Actions until both
+          pass in a row.
+        </p>
+        <div class="rules-table-scroll">
+          <table>
+            <thead>
+              <tr><th>Phase</th><th>What you do</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Awaken</td>
+                <td>Ready your cards (unless Frost prevents it), resolve start-of-turn effects, then both players draw a card. Both players draw on the first turn too.</td>
+              </tr>
+              <tr>
+                <td>Action Phase</td>
+                <td>Players alternate Actions. During your opportunity you may first play your one Leyline and Concentrate if eligible, then take one Action or pass.</td>
+              </tr>
+              <tr>
+                <td>Dusk</td>
+                <td>Resolve end-of-turn effects, then Turn Reset clears damage/temporary effects, discards down to hand size, removes unused Resonance, and passes Initiative.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Common Actions</h3>
+        <ul>
+          <li>Summon a creature by casting it.</li>
+          <li>Cast a Ritual Chant.</li>
+          <li>Play an Enchantment or Relic.</li>
+          <li>Activate an ability, Edict, Signature, or Ultimate.</li>
+          <li>Declare Combat.</li>
+          <li>Pass.</li>
+        </ul>
+        <p>
+          An Interrupt is different: it is normally cast in response to something and does not use your next Action.
+          <strong>Intervene X</strong> lets a card or ability be used like an Interrupt by paying X additional
+          Resonance.
+        </p>
+      </section>
+
+      <section id="creatures" class="rules-section">
+        <h2><span class="rules-num">5</span>Creatures and the battlefield</h2>
+        <p>
+          Most creatures enter exhausted. A creature that entered this turn normally cannot attack or exhaust itself to
+          use an ability.
+        </p>
+        <dl class="rules-keywords">
+          <div><dt>Prepared</dt><dd>Enters ready and can block immediately, but cannot attack or use its own exhaust ability that turn.</dd></div>
+          <div><dt>Rush</dt><dd>Enters ready and can attack or use its own exhaust abilities immediately.</dd></div>
+          <div><dt>Steadfast</dt><dd>Does not exhaust when attacking.</dd></div>
+          <div><dt>Soar</dt><dd>Can normally be blocked only by Soar or Reach.</dd></div>
+          <div><dt>Reach</dt><dd>Can block Soar.</dd></div>
+        </dl>
+        <p>
+          <strong>Summon</strong> means a creature enters the field, whether it was cast, returned from the Dustrealm,
+          or conjured as a token. If a card cares specifically about casting, it will say <strong>cast</strong>.
+        </p>
+      </section>
+
+      <section id="combat" class="rules-section">
+        <h2><span class="rules-num">6</span>Combat</h2>
+        <p>
+          Each player may Declare Combat once per shared turn as an Action. Combat happens inside that Action; players
+          do not take normal Actions in the middle of it.
+        </p>
+        <ol>
+          <li><strong>Declare Combat.</strong> This opens a response window before attackers are chosen.</li>
+          <li><strong>Declare attackers.</strong> Choose what attacks the Enemy, or use Hunt to attack an enemy creature directly. Attackers normally exhaust.</li>
+          <li><strong>Declare blockers.</strong> The defender assigns ready legal blockers. This opens the final normal response window before damage.</li>
+          <li><strong>Swiftstrike damage</strong> happens first.</li>
+          <li><strong>Normal combat damage</strong> follows.</li>
+          <li><strong>Combat ends</strong> and the other player receives the next Action opportunity.</li>
+        </ol>
+        <h3>Useful combat keywords</h3>
+        <dl class="rules-keywords">
+          <div><dt>Swiftstrike</dt><dd>Deals combat damage before normal damage.</dd></div>
+          <div><dt>Stampede</dt><dd>After assigning lethal damage to blockers, excess damage can hit the Enemy.</dd></div>
+          <div><dt>Hunt</dt><dd>Attack an enemy creature directly; other creatures cannot block that hunter, and the hunted creature cannot block somewhere else.</dd></div>
+          <div><dt>Venom</dt><dd>Any positive damage this deals to a creature destroys it; for Stampede, 1 assigned damage counts as lethal.</dd></div>
+          <div><dt>Impose</dt><dd>Creatures with Attack 1 or less cannot block it.</dd></div>
+        </dl>
+      </section>
+
+      <section id="protection" class="rules-section">
+        <h2><span class="rules-num">7</span>Protecting creatures</h2>
+        <dl class="rules-keywords">
+          <div><dt>Protection</dt><dd>Protection N is a targeting tax. When an enemy spell or ability chooses the protected card, that spell/ability is countered unless its controller pays N extra Resonance. Multiple Protection effects stack.</dd></div>
+          <div><dt>Resistance</dt><dd>Resistance N prevents N damage from each applicable source. Multiple applicable Resistance effects stack.</dd></div>
+          <div><dt>Ward</dt><dd>Each Ward counter prevents 1 damage after Resistance. Remove only the Ward counters needed; any extras stay. If several sources deal damage at the same time, the controller of the warded creature decides which source(s) the Ward counters prevent.</dd></div>
+        </dl>
+        <aside class="rules-callout">
+          <p class="rules-callout-title">Damage order</p>
+          <p>
+            Protection is checked when a spell or ability chooses something. If the effect resolves and would deal
+            damage: Resistance → Ward → remaining damage.
+          </p>
+        </aside>
+      </section>
+
+      <section id="lord" class="rules-section">
+        <h2><span class="rules-num">8</span>Your Nexus Lord</h2>
+        <h3>Edicts</h3>
+        <p>
+          Edicts are powerful Focus abilities. A Nexus Lord can use one Lord Action each shared turn for its Edict or
+          Ultimate. Champions can have Edicts too, but Champion Edicts do not use the Lord Action.
+        </p>
+        <p>
+          Remember: using any Edict or Ultimate means you cannot Concentrate that turn, and Concentrating means you
+          cannot use any Edict or Ultimate that turn.
+        </p>
+        <h3>Ascend</h3>
+        <p>
+          Each Nexus Lord has a unique Ascend condition. When you complete it, the Lord's Ascension trigger flips it to
+          the stronger side and resolves its printed reward. Progress you already earned is not normally erased just
+          because your board changes.
+        </p>
+        <h3>Signatures and Ultimates</h3>
+        <p>
+          Ascended Lords unlock their defining Signature Ability and, for Ultimate Lords, a once-per-game Ultimate.
+          Activated non-Ultimate Signatures use your player Action but do not use the Lord Action. Ultimates use the
+          Lord Action, are once per game, and cannot be activated during the same shared turn in which the Lord
+          Ascends.
+        </p>
+      </section>
+
+      <section id="stack" class="rules-section">
+        <h2><span class="rules-num">9</span>Reactions and the stack</h2>
+        <p>
+          When a spell, ability, or trigger goes on the stack, the other player gets the first chance to respond with
+          an Interrupt or another legal response. Responses resolve last-in, first-out. Once both players decline, the
+          top object resolves.
+        </p>
+        <p>
+          If an enemy removes the source of an ability that is already on the stack, the ability normally still
+          resolves. If all required chosen objects become illegal before resolution, the effect fails to affect them.
+          Costs and Actions are not refunded when a spell or ability is countered.
+        </p>
+      </section>
+
+      <section id="affinities" class="rules-section">
+        <h2><span class="rules-num">10</span>Five Affinities, five styles</h2>
+        <div class="rules-table-scroll">
+          <table>
+            <thead>
+              <tr><th>Affinity</th><th>Core fantasy / play style</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Divinity</td><td>Leadership, Life gain, protection, sacred formation, resilience.</td></tr>
+              <tr><td>Corruption</td><td>Discard, Siphon, sacrifice, Dustrealm recursion, attrition.</td></tr>
+              <tr><td>Arcane</td><td>Learn, Frost, precision, card selection, tactical control.</td></tr>
+              <tr><td>Primal</td><td>Creatures, Hunt, growth, Leyline/ecosystem ramp, combat pressure.</td></tr>
+              <tr><td>Chaos</td><td>Dice, Rush, Spawn/Whelps, volatility, burst, reality distortion.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Prismatic cards sit outside a single Affinity and are generally available to any deck unless their own text
+          says otherwise.
+        </p>
+      </section>
+
+      <section id="example" class="rules-section">
+        <h2><span class="rules-num">11</span>A simple first-turn example</h2>
+        <p>Divinity has Initiative.</p>
+        <ol>
+          <li>Both players Awaken and draw a card.</li>
+          <li>Divinity receives the first Action opportunity. They play a ready Leyline (not an Action), then cast a creature as their Action.</li>
+          <li>Corruption gets the next Action opportunity, plays a Leyline, and casts a Ritual.</li>
+          <li>Divinity receives another opportunity. They could Declare Combat, play another legal Action, Concentrate with a ready Leyline, or pass.</li>
+          <li>Eventually one player passes. If the opponent also passes with the stack empty, the Action Phase ends.</li>
+          <li>Dusk resolves end-of-turn effects. Turn Reset clears damage and temporary bonuses, discards down to hand size, removes unused Resonance, and passes Initiative to Corruption.</li>
+        </ol>
+      </section>
+
+      <aside class="rules-callout rules-outro">
+        <p class="rules-callout-title">Want the edge cases?</p>
+        <p>
+          The website quickstart teaches the normal play loop. For detailed combat assignment, multiple Hunt attackers,
+          Protection/Resistance/Ward stacking, nested casting, copies, tokens, uniqueness, searching, dice
+          modification, state-based checks, and tournament procedures, use the Comprehensive Rules.
+        </p>
+      </aside>
+
+      <div class="rules-cta">
+        <p>The fastest way to learn is to play a turn.</p>
+        <a class="btn-gold" href="https://play.leylinesofpower.com">Practice in the Simulator</a>
       </div>
-    </section>
+    </div>
   </div>
 </BaseLayout>
 
 <style>
-  /* Same ambient background + bordered-panel treatment as the homepage's
-     Tools/Final-CTA sections — see src/pages/index.astro for the fuller
-     version of these comments. --gold/--gold-bright are the darker
-     antique-gold tone globally now (see global.css), no override needed. */
+  /* Same ambient background treatment as the other content pages. */
   .content-bg {
     position: relative;
     min-height: 100%;
@@ -51,126 +306,257 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     -webkit-mask-image: linear-gradient(to bottom, black 0%, black 68%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 0%, black 68%, transparent 100%);
   }
-  .placeholder-wrap {
+  .rules-wrap {
     position: relative;
     z-index: 1;
-    padding: 12vh 24px;
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 56px 24px 72px;
   }
-  .framed-panel {
-    position: relative;
+  .rules-header {
+    text-align: center;
+    margin-bottom: 34px;
+  }
+  .rules-header h1 {
+    margin: 6px 0 2px;
+    font-size: clamp(26px, 3.4vw, 38px);
+    color: var(--gold-bright);
+  }
+  .rules-sub {
+    margin: 0 0 18px;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted-fg);
+  }
+  .rules-note {
     max-width: 640px;
     margin: 0 auto;
-    padding: 56px 48px;
-    background: linear-gradient(165deg, var(--sidebar-bg-2), var(--sidebar-bg));
-    border-radius: 12px;
+    font-style: italic;
+    color: var(--muted-fg);
+    font-size: 14.5px;
+    line-height: 1.6;
+  }
+
+  .rules-toc {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 10px;
+    margin: 0 auto 46px;
+    max-width: 720px;
+  }
+  .rules-toc a {
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--fg);
+    opacity: 0.8;
+    padding: 6px 12px;
+    border: 1px solid rgba(201, 169, 78, 0.3);
+    border-radius: 999px;
+    background: rgba(33, 34, 38, 0.6);
+  }
+  .rules-toc a:hover {
+    opacity: 1;
+    color: var(--gold-bright);
+    border-color: rgba(201, 169, 78, 0.6);
+  }
+
+  .rules-section {
+    margin-bottom: 44px;
+    scroll-margin-top: 24px;
+  }
+  .rules-section h2 {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin: 0 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(201, 169, 78, 0.25);
+    font-size: clamp(19px, 2.4vw, 24px);
+    color: var(--gold-bright);
+  }
+  .rules-num {
+    font-family: 'Cinzel Decorative', 'Cinzel', serif;
+    font-size: 0.85em;
+    color: var(--gold);
+  }
+  .rules-section h3 {
+    margin: 22px 0 8px;
+    font-size: 15.5px;
+    letter-spacing: 0.04em;
+    color: var(--fg);
+  }
+  .rules-section p {
+    margin: 0 0 12px;
+    line-height: 1.7;
+    color: rgba(236, 234, 234, 0.9);
+  }
+  .rules-section strong {
+    color: var(--gold-bright);
+    font-weight: 600;
+  }
+
+  .rules-section ul,
+  .rules-section ol {
+    margin: 0 0 14px;
+    padding-left: 6px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .rules-section ul li,
+  .rules-section ol li {
+    position: relative;
+    padding-left: 22px;
+    line-height: 1.65;
+    color: rgba(236, 234, 234, 0.9);
+  }
+  .rules-section ul li::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 0.62em;
+    width: 6px;
+    height: 6px;
+    transform: rotate(45deg);
+    background: var(--gold);
+  }
+  .rules-section ol {
+    counter-reset: rules-step;
+  }
+  .rules-section ol li {
+    counter-increment: rules-step;
+    padding-left: 30px;
+  }
+  .rules-section ol li::before {
+    content: counter(rules-step);
+    position: absolute;
+    left: 0;
+    top: 0.14em;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--gold-bright);
+  }
+
+  .rules-keywords {
+    margin: 0 0 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .rules-keywords > div {
+    display: grid;
+    grid-template-columns: 118px 1fr;
+    gap: 12px;
+    align-items: baseline;
+  }
+  .rules-keywords dt {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 13.5px;
+    letter-spacing: 0.04em;
+    color: var(--gold-bright);
+  }
+  .rules-keywords dd {
+    margin: 0;
+    line-height: 1.6;
+    color: rgba(236, 234, 234, 0.9);
+  }
+  @media (max-width: 560px) {
+    .rules-keywords > div {
+      grid-template-columns: 1fr;
+      gap: 2px;
+    }
+  }
+
+  .rules-table-scroll {
+    overflow-x: auto;
+    margin: 0 0 14px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(33, 34, 38, 0.55);
+    border: 1px solid rgba(201, 169, 78, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  th {
+    text-align: left;
+    font-family: 'Cinzel', serif;
+    font-size: 12.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold-bright);
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(201, 169, 78, 0.35);
+  }
+  td {
+    vertical-align: top;
+    padding: 12px 16px;
+    line-height: 1.6;
+    color: rgba(236, 234, 234, 0.9);
+    border-bottom: 1px solid rgba(201, 169, 78, 0.12);
+  }
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+  td:first-child {
+    white-space: nowrap;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 13.5px;
+    color: var(--gold-bright);
+  }
+
+  .rules-callout {
+    margin: 18px 0;
+    padding: 18px 22px;
+    border: 1px solid rgba(201, 169, 78, 0.35);
+    border-left: 3px solid var(--gold);
+    border-radius: 8px;
+    background: linear-gradient(165deg, rgba(33, 34, 38, 0.85), rgba(26, 27, 31, 0.85));
+  }
+  .rules-callout p {
+    margin: 0;
+    line-height: 1.65;
+    color: rgba(236, 234, 234, 0.92);
+  }
+  .rules-callout-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-bright);
+    margin: 0 0 6px !important;
+  }
+  .rules-outro {
+    margin-top: 8px;
+  }
+
+  .rules-cta {
+    margin-top: 44px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 18px;
+    gap: 16px;
   }
-  .framed-panel::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    pointer-events: none;
-    border-style: solid;
-    border-width: 8px;
-    border-image-source: url('/ornaments/box-frame-2.png');
-    border-image-slice: 16;
-    border-image-width: 8px;
-    border-image-repeat: stretch;
-    border-radius: 12px;
-    filter: brightness(1.05) saturate(1.15) hue-rotate(-4deg);
-  }
-  /* Small gold "jeweled corner" accents — same treatment as the simulator's
-     Deck Builder/Board zone corners and the homepage's framed panels (see
-     src/pages/index.astro for the fuller comment), replacing the old ornate
-     corner-bracket image flourish. */
-  .gold-corners {
-    position: absolute;
-    inset: 10px;
-    pointer-events: none;
-    z-index: 10;
-  }
-  .gold-corner {
-    position: absolute;
-    width: 26px;
-    height: 26px;
-    border: 0 solid var(--gold-bright);
-    opacity: 0.9;
-    filter: drop-shadow(0 0 2px rgba(205, 169, 79, 0.4));
-  }
-  .gold-corner::before {
-    content: '';
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background: var(--gold-bright);
-    transform: rotate(45deg);
-    opacity: 0.95;
-    box-shadow: 0 0 3px rgba(232, 201, 119, 0.55);
-  }
-  .gold-corner-tl {
-    top: 0;
-    left: 0;
-    border-top-width: 2px;
-    border-left-width: 2px;
-    border-top-left-radius: 6px;
-  }
-  .gold-corner-tl::before {
-    top: -3px;
-    left: -3px;
-  }
-  .gold-corner-tr {
-    top: 0;
-    right: 0;
-    border-top-width: 2px;
-    border-right-width: 2px;
-    border-top-right-radius: 6px;
-  }
-  .gold-corner-tr::before {
-    top: -3px;
-    right: -3px;
-  }
-  .gold-corner-bl {
-    bottom: 0;
-    left: 0;
-    border-bottom-width: 2px;
-    border-left-width: 2px;
-    border-bottom-left-radius: 6px;
-  }
-  .gold-corner-bl::before {
-    bottom: -3px;
-    left: -3px;
-  }
-  .gold-corner-br {
-    bottom: 0;
-    right: 0;
-    border-bottom-width: 2px;
-    border-right-width: 2px;
-    border-bottom-right-radius: 6px;
-  }
-  .gold-corner-br::before {
-    bottom: -3px;
-    right: -3px;
-  }
-  h1 {
-    margin: 6px 0 0;
-    font-size: clamp(24px, 3.2vw, 34px);
-    color: var(--gold-bright);
-  }
-  p {
+  .rules-cta p {
     margin: 0;
-    color: var(--fg);
-    opacity: 0.85;
-    font-size: 16px;
-    line-height: 1.6;
+    font-style: italic;
+    color: var(--muted-fg);
   }
-  .cta {
-    margin-top: 12px;
-    padding: 14px 28px;
-    font-size: 15px;
+  .rules-cta .btn-gold {
+    padding: 12px 26px;
+    font-size: 14px;
   }
 </style>
