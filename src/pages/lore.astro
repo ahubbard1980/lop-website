@@ -138,12 +138,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="sv-p">Five words were carved into the stone beneath his feet.</p>
       <div class="sv-pull"><strong>Stand as Aureth stood.</strong></div>
 
-      <figure class="sv-media sv-scene">
-        <img src="/lore/aureth-statue.jpg" alt="The colossal statue of Aureth the Unyielding watches over the armies preparing on the Evershine Plains" loading="lazy" />
+      <figure class="sv-media sv-scene sv-tall">
+        <img src="/lore/aureth-statue.jpg" alt="Knights swear their oaths beneath the colossal statue of Aureth the Unyielding, the oath carved into its pedestal" loading="lazy" />
         <figcaption class="sv-media-overlay sv-overlay-left">
           <span class="sv-kicker">The Unyielding</span>
           <span class="sv-overlay-rule"></span>
-          <span class="sv-overlay-copy">Stand as Aureth stood.</span>
+          <span class="sv-overlay-copy">Five words were carved into the stone beneath his feet.</span>
         </figcaption>
       </figure>
 
@@ -858,6 +858,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
      capped at 167vh (= a 16:9 image standing 94% of the viewport tall) so
      on wide/short windows the scene letterboxes to fit one screen instead
      of growing taller than it. */
+  /* 4:3 scenes need a tighter width cap than 16:9 ones to keep the whole
+     painting inside one screen (height = 3/4 width, so 125vh wide ≈ 94vh
+     tall). */
+  .sv-scene.sv-tall {
+    width: min(100vw, 125vh);
+  }
   .sv-scene {
     width: min(100vw, 167vh);
     margin-left: 50%;
