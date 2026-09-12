@@ -672,11 +672,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     object-fit: cover;
     object-position: center 30%;
   }
+  /* The art itself feathers out at the bottom (same treatment as the
+     story scenes) and the scrim runs fully opaque into the page color, so
+     the hero dissolves into the story with no visible image edge. */
+  .sv-hero-art {
+    -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 78%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0, #000 78%, transparent 100%);
+  }
   .sv-hero-scrim {
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(to bottom, rgba(20, 21, 25, 0.35), transparent 30%, transparent 50%, rgba(26, 27, 31, 0.96) 96%),
+      linear-gradient(to bottom, rgba(20, 21, 25, 0.35), transparent 30%, transparent 50%, rgba(26, 27, 31, 0.85) 88%, var(--sidebar-bg) 100%),
       radial-gradient(ellipse at 50% 100%, rgba(0, 0, 0, 0.45), transparent 60%);
   }
   .sv-hero-copy {
