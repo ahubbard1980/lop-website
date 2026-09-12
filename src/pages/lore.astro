@@ -979,31 +979,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     pointer-events: none;
   }
 
-  /* Scroll-reveal initial states — armed only when the script adds
-     html.sv-anim (so no-JS and reduced-motion readers see everything
-     immediately). Media keeps fade-only: scenes/plates center themselves
-     with a transform the reveal must not override. */
+  /* Scroll-reveal — armed only when the script adds html.sv-anim (so
+     no-JS and reduced-motion readers see everything immediately). The
+     HIDDEN state targets :not(.sv-in), so the revealed state is simply
+     each element's own default — no reveal rule to lose a specificity
+     fight, and the scenes' centering transform is never touched (media
+     fades only). */
   :global(html.sv-anim) .sv-story .sv-p,
   :global(html.sv-anim) .sv-pull,
   :global(html.sv-anim) .sv-ornament,
   :global(html.sv-anim) .sv-finale-copy,
   :global(html.sv-anim) .sv-credit {
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  :global(html.sv-anim) .sv-story .sv-p:not(.sv-in),
+  :global(html.sv-anim) .sv-pull:not(.sv-in),
+  :global(html.sv-anim) .sv-ornament:not(.sv-in),
+  :global(html.sv-anim) .sv-finale-copy:not(.sv-in),
+  :global(html.sv-anim) .sv-credit:not(.sv-in) {
     opacity: 0;
     transform: translateY(14px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
   }
   :global(html.sv-anim) .sv-media,
   :global(html.sv-anim) .sv-finale-scene {
-    opacity: 0;
     transition: opacity 0.9s ease;
   }
-  :global(html.sv-anim) .sv-in {
-    opacity: 1;
-    transform: none;
-  }
-  :global(html.sv-anim) .sv-media.sv-in,
-  :global(html.sv-anim) .sv-finale-scene.sv-in {
-    transform: translateX(-50%);
+  :global(html.sv-anim) .sv-media:not(.sv-in),
+  :global(html.sv-anim) .sv-finale-scene:not(.sv-in) {
+    opacity: 0;
   }
 
   .sixth-volley {
