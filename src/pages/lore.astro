@@ -9,8 +9,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 // rest lazy).
 ---
 
-<BaseLayout title="The Sixth Volley — Leylines of Power" description="A story from Aetheris — the day Lumoria lost its Shield.">
+<BaseLayout title="The Sixth Volley — Leylines of Power" description="A story from Aetheris — the day Lumoria lost its Shield." floatingHeader>
   <article class="sixth-volley">
+    <div class="sv-progress" aria-hidden="true"></div>
     <header class="sv-hero">
       <img
         class="sv-hero-art"
@@ -131,7 +132,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </figcaption>
       </figure>
 
-      <div class="sv-ornament"><span class="sv-diamond"></span></div>
+      <div class="sv-ornament"><img src="/ornaments/divider.png" alt="" loading="lazy" /></div>
 
       <p class="sv-p">Aureth's Watch stood at the western edge of the Evershine Plains, guarding the approach into Lumoria. From its walls, Tomas could see farmland stretching east toward Evershine, broken by roads leading toward Solenne and deeper into the kingdom.</p>
       <p class="sv-p">Behind him rose the fortress that had guarded those roads for nearly three centuries.</p>
@@ -232,7 +233,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="sv-p">The Shield was ready.</p>
       <p class="sv-p">So Tomas was too.</p>
 
-      <div class="sv-ornament"><span class="sv-diamond"></span></div>
+      <div class="sv-ornament"><img src="/ornaments/divider.png" alt="" loading="lazy" /></div>
 
       <p class="sv-p">The first barrage began with a hundred bowstrings.</p>
       <p class="sv-p">Arrows climbed over the Lumorian lines in a dark curve, followed by white fire from the battle-mages. Beneath Tomas's boots, Lorian's lattice ignited.</p>
@@ -458,7 +459,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="sv-pull"><strong>"Again."</strong></div>
       <p class="sv-p">Then soldiers crashed between them, and the battlefield swallowed Gabriel whole.</p>
 
-      <div class="sv-ornament"><span class="sv-diamond"></span></div>
+      <div class="sv-ornament"><img src="/ornaments/divider.png" alt="" loading="lazy" /></div>
 
       <p class="sv-p">Tomas could never remember when he began running.</p>
       <p class="sv-p">At some point he lost sight of Kaelen. At some point the standard tore. He remembered a riderless horse knocking him into the mud and crawling beneath arrows while silver cloth dragged behind him.</p>
@@ -602,9 +603,52 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </section>
 
-      <div class="sv-credit">Leylines of Power — The Sixth Volley</div>
+      <div class="sv-credit">
+        <img class="sv-seal" src="/icons/lop-logo.png" alt="" width="46" height="46" loading="lazy" />
+        <span class="sv-credit-title">The Sixth Volley</span>
+        <span class="sv-credit-sub">A story from Aetheris</span>
+      </div>
     </main>
   </article>
+
+  <script>
+    // Reading progress + scroll-reveal. Progressive enhancement: without
+    // JS (or with reduced motion) everything is simply visible — the
+    // sv-anim class is what arms the hidden initial states.
+    const bar = document.querySelector<HTMLElement>('.sv-progress');
+    if (bar) {
+      let ticking = false;
+      const update = () => {
+        ticking = false;
+        const max = document.documentElement.scrollHeight - innerHeight;
+        bar.style.transform = `scaleX(${max > 0 ? Math.min(1, scrollY / max) : 0})`;
+      };
+      addEventListener('scroll', () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      }, { passive: true });
+      update();
+    }
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('sv-anim');
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('sv-in');
+              io.unobserve(entry.target);
+            }
+          }
+        },
+        { rootMargin: '0px 0px -8% 0px' },
+      );
+      document
+        .querySelectorAll('.sv-story .sv-p, .sv-media, .sv-pull, .sv-ornament, .sv-finale-scene, .sv-finale-copy, .sv-credit')
+        .forEach((el) => io.observe(el));
+    }
+  </script>
 </BaseLayout>
 
 <style>
@@ -757,21 +801,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 44px auto;
+    margin: 48px auto;
   }
-  .sv-ornament::before,
-  .sv-ornament::after {
-    content: '';
-    width: min(26%, 150px);
-    height: 1px;
-    background: rgba(201, 169, 78, 0.4);
-  }
-  .sv-diamond {
-    width: 8px;
-    height: 8px;
-    margin: 0 12px;
-    transform: rotate(45deg);
-    background: var(--gold);
+  .sv-ornament img {
+    width: min(64%, 340px);
+    height: auto;
+    opacity: 0.9;
   }
 
   /* ---- Illustrations ---- */
@@ -808,6 +843,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin-top: 60px;
     margin-bottom: 60px;
     transform: translateX(-50%);
+  }
+  /* Full-bleed paintings emerge from the page rather than sitting on it —
+     their top and bottom edges feather into the dark background. */
+  .sv-scene img,
+  .sv-finale-art {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 7%, #000 94%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 7%, #000 94%, transparent 100%);
   }
   .sv-media-overlay {
     position: absolute;
@@ -890,15 +932,78 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: var(--fg);
   }
 
+  /* End seal — the story closes with the brand mark instead of trailing
+     off into the footer. */
   .sv-credit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
     margin: 0 auto;
-    padding: 40px 22px 56px;
+    padding: 48px 22px 64px;
     text-align: center;
+  }
+  .sv-seal {
+    display: block;
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    opacity: 0.9;
+  }
+  .sv-credit-title {
     font-family: 'Cinzel', serif;
-    font-size: 11px;
-    letter-spacing: 0.28em;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
     text-transform: uppercase;
+    color: var(--gold-bright);
+  }
+  .sv-credit-sub {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 13px;
     color: var(--muted-fg);
+  }
+
+  /* Thin gold reading-progress bar, driven by the inline script. */
+  .sv-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    z-index: 40;
+    transform: scaleX(0);
+    transform-origin: left;
+    background: linear-gradient(to right, var(--gold), var(--gold-bright));
+    pointer-events: none;
+  }
+
+  /* Scroll-reveal initial states — armed only when the script adds
+     html.sv-anim (so no-JS and reduced-motion readers see everything
+     immediately). Media keeps fade-only: scenes/plates center themselves
+     with a transform the reveal must not override. */
+  :global(html.sv-anim) .sv-story .sv-p,
+  :global(html.sv-anim) .sv-pull,
+  :global(html.sv-anim) .sv-ornament,
+  :global(html.sv-anim) .sv-finale-copy,
+  :global(html.sv-anim) .sv-credit {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  :global(html.sv-anim) .sv-media,
+  :global(html.sv-anim) .sv-finale-scene {
+    opacity: 0;
+    transition: opacity 0.9s ease;
+  }
+  :global(html.sv-anim) .sv-in {
+    opacity: 1;
+    transform: none;
+  }
+  :global(html.sv-anim) .sv-media.sv-in,
+  :global(html.sv-anim) .sv-finale-scene.sv-in {
+    transform: translateX(-50%);
   }
 
   .sixth-volley {
